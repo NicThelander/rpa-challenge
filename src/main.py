@@ -14,7 +14,9 @@ from helpers.util import output_excel_data
 from logger import setup_logger
 
 
-async def project(search_term):
+# went with a plain non async setup as unfamiliar with robocorp and how it
+# plays with the async libraries
+def project(search_term, months=1):
     try:
         logger = setup_logger()
         logger.info(f"Setting up {settings.PROJECT_TITLE}")
@@ -40,14 +42,14 @@ async def project(search_term):
         )
         logger.info("Instantiating NewsBrowser")
 
-        browser_opened_successfully = news_browser.open_browser(url="https://gothamist.com/search")
+        news_browser.open_browser(url="https://gothamist.com/search")
 
 
         # TODO: gothamist has a tags system they use for categories (/tags/{category}) so we can get them like that (seems to have the same structure as search results, just validate that is the case and don't use search parts of search articles)
         output_data = news_browser.search_articles(
             output_sub_dir=output_sub_folder,
             query=search_term,
-            months=2
+            months=months
         )
         news_browser.close_browsers()
 
@@ -67,6 +69,10 @@ async def project(search_term):
         logger.exception(f"Project failed to start, reason: {e}")
         raise
 
+# @task
+# def minimal_task(search_term, months=1):
+#     project(search_term, months)
 
 if __name__ == '__main__':
-    asyncio.run(project("dog"))
+
+    project("dog")

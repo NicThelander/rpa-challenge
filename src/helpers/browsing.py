@@ -73,11 +73,10 @@ class NewsBrowser(object):
             self.browser.set_window_size(1024, 768)
             self.browser.go_to(url)
 
-            return True
 
         except Exception as e:
             self.logger.exception(f"Failed to open browser, reason: {e}")
-            return False
+            raise Exception("failed to open browser")
 
     def close_browsers(self):
         try:
