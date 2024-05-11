@@ -49,7 +49,6 @@ class NewsBrowser(object):
             options.add_argument("--headless")
             options.add_argument("--no-sandbox")
             options.add_argument("--disable-dev-shm-usage")
-            # TODO: apply these options to the browser for robocloud too
             # popup blocking
             options.add_experimental_option("prefs", {
                 "profile.default_content_setting_values.notifications": 2
@@ -154,7 +153,6 @@ class NewsBrowser(object):
                 params=[query]
             )
 
-            # TODO: look at defaulting this duration
             interact_with_element(
                 logger=self.logger,
                 element_interaction=search_bar.send_keys,
@@ -178,8 +176,6 @@ class NewsBrowser(object):
             )
             cards_length = len(cards)
 
-            # TODO: extract this into a function so we can load more and
-            # continue from the given index
             output_data = []
             index = 0
             latest_date = datetime.now()
@@ -195,20 +191,10 @@ class NewsBrowser(object):
             fresh_retrieval = True
             while latest_date > articles_start_date and index < cards_length:
                 if fresh_retrieval:
-                # #     # TODO: add in a fail response here where we process the
-                # #     # rest of the cards we have if load more fails and try
-                # #     # again later (or potentially refresh page)
+                    # load more cards whenever we start processing them
+                    # so we can grab new ones at the end of the batch
                     self.load_more_cards()
                     fresh_retrieval = False
-
-                
-                    # request up to 10 times in 1 second intervals if if doesn't
-                    # respond immediately, else gracefully exit and TODO: make a note
-                    # of this in in the output file
-
-                    
-                    # TODO: every time we hit the index of max card, retrieve
-                    # cards so we can do the while check expression 
                         
 
                 card = cards[index]

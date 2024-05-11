@@ -17,7 +17,7 @@ from logger import setup_logger
 
 # went with a plain non async setup as unfamiliar with robocorp and how it
 # plays with the async libraries
-def project(search_term="dog", months=1):
+def project(search_term, months=1):
     try:
         logger = setup_logger()
         logger.info(f"Setting up {settings.PROJECT_TITLE}")
@@ -45,8 +45,6 @@ def project(search_term="dog", months=1):
 
         news_browser.open_browser(url="https://gothamist.com/search")
 
-
-        # TODO: gothamist has a tags system they use for categories (/tags/{category}) so we can get them like that (seems to have the same structure as search results, just validate that is the case and don't use search parts of search articles)
         output_data = news_browser.search_articles(
             output_sub_dir=output_sub_folder,
             query=search_term,
@@ -66,8 +64,8 @@ def project(search_term="dog", months=1):
         raise
 
 @task
-def minimal_task():
-    project()
+def minimal_task(search_term, months):
+    project(search_term, months)
 # def minimal_task(search_term="dog", months=1):
 #     project(search_term, months)
 

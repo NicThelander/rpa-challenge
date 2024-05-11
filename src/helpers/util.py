@@ -22,9 +22,6 @@ def output_excel_data(logger: Logger, path: str, data: List[Dict[str, str]]):
 
 # TODO: sort out documentation on all functions following sphinx style
 # (going with this as it's supported in vscode)
-# TODO: type logger
-# TODO: look at better typing on the driver given that web elements can also
-# be used - this is what they use in the selenium library though
 def wait_and_retrieve_item(
     logger: Logger,
     driver: WebDriver,
@@ -57,8 +54,7 @@ def wait_and_retrieve_item(
     7. timeout : int, (default defined at settings.DEFAULT_TIMEOUT)
         - timeout duration waiting for element
     8. sleep_duration : float, (default defined at settings.DEFAULT_SLEEP)
-        - time to sleep after element is located (to simulate human delay -
-        TODO: look at replacing this with a more robust built in solution)
+        - time to sleep after element is located (to simulate human delay)
 
     #### Returns
     ------
