@@ -5,7 +5,7 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     """Shared config, can pull these in from an env file for production
     environment but just hard coding for the sake of it being a project"""
-    ENV: str = "local"
+    ENV: str = "cloud"
     PROJECT_TITLE: str = "rpa_project"
     LOGGING_FILE: str = "logs/rpa_project.log"
     STARTUP_FAIL_LOG_FILE_PATH: str = "logs/startup_failure.log"
