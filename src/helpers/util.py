@@ -10,7 +10,27 @@ from config import settings
 # TODO: sort imports
 
 
-def output_excel_data(logger: Logger, path: str, data: List[Dict[str, str]]):
+def output_excel_data(logger: Logger, path: str, data: List[Dict[str, str]]) -> None:
+    """Attempts to output data to an excel file
+    
+    #### Parameters
+    ------
+    1. logger : Logger
+        - logger instance
+    2. path : str
+        - path to the excel file
+    3. data : List[Dict[str, str]]
+        - data to be output to the excel file
+    
+    #### Returns
+    ------
+        - None
+    
+    #### Raises
+    ------
+        - Exception
+            - when failing to output data to excel
+    """
     try:
         df = pd.DataFrame(data)
         df.to_excel(path, index=False)
@@ -81,7 +101,6 @@ def wait_and_retrieve_item(
         return element
     except Exception as e:
         logger.exception(f"Failed to locate element, reason: {e}")
-        # TODO: look at re-raising exception being made more specific
         raise Exception(
             f"Failed to locate element - see above for error info"
         )
@@ -105,8 +124,7 @@ def interact_with_element(
             (for eg search_bar.click())s.DEFAULT_TIMEOUT)
         - timeout duration waiting for element
     3. sleep_duration : float, (default defined at settings.DEFAULT_SLEEP)
-        - time to sleep after element is located (to simulate human delay -
-        TODO: look at replacing this with a more robust built in solution)
+        - time to sleep after element is located (to simulate human delay)
 
     #### Returns
     ------
@@ -115,7 +133,8 @@ def interact_with_element(
 
     #### Raises
     ------
-    # TODO: fill raises
+        - Exception
+            - when failing to interact with the element
     """
     try:
         # TODO: look at xpath handling
@@ -129,6 +148,25 @@ def interact_with_element(
 
 # TODO: docstring
 def extract_date(logger: Logger, published_string: str) -> datetime:
+    """Attempts to extract the date from the published string
+    
+    #### Parameters
+    ------
+    1. logger : Logger
+        - logger instance
+    2. published_string : str
+    - string containing the date
+    
+    #### Returns
+    ------
+        - datetime
+            - datetime object of the date extracted from the string
+        
+    #### Raises
+    ------
+        - Exception
+            - when failing to extract the date from the string
+    """
     try: 
         # Extract the date string
         match = re.search(r'Published (.*?)( at|$)', published_string)

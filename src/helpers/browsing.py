@@ -40,7 +40,23 @@ class NewsBrowser(object):
 
     # defining open and close methods separately to re-initialize on crashes
 
-    def open_browser(self, url):
+    def open_browser(self, url: str):
+        """sets the browser options and attempts to open it to the specified url
+    
+        #### Parameters
+        ------
+        1. url : str
+            - logger instance
+        
+        #### Returns
+        ------
+            - None
+        
+        #### Raises
+        ------
+            - Exception
+                - when failing to open the browser
+        """
         try:
         
             # options for the headless browser
@@ -77,6 +93,17 @@ class NewsBrowser(object):
             raise Exception("failed to open browser")
 
     def close_browsers(self):
+        """closes all open browsers
+        
+        #### Returns
+        ------
+            - None
+        
+        #### Raises
+        ------
+            - Exception
+                - when failing to close the browser
+        """
         try:
             self.browser.close_all_browsers()
         except Exception as e:
@@ -209,7 +236,6 @@ class NewsBrowser(object):
                 article_details = {}
 
                 # retrieve the image url
-                # TODO: download the image via asyncio or whatever works for robocloud in the background
                 image_url: WebElement = wait_and_retrieve_item(
                     self.logger,
                     driver=card,
@@ -223,7 +249,6 @@ class NewsBrowser(object):
                 self.browser.driver.switch_to.window(
                     self.browser.driver.window_handles[-1])
                 
-        
                 # get the image name after the url redirect (need to load the
                 # page to get the image name)
                 try:

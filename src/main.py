@@ -63,7 +63,7 @@ def project(search_term, months=1):
         logger.exception(f"Project failed to start, reason: {e}")
         raise
 
-@task
+@task()
 def minimal_task(search_term: str, months: int):
     project(search_term, months)
 # def minimal_task(search_term="dog", months=1):
