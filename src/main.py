@@ -64,8 +64,10 @@ def project(search_term, months=1):
         raise
 
 @task
-def minimal_task(search_term: str, months: int):
-    project(search_term, months)
+def minimal_task():
+    project(settings.SEARCH_QUERY, settings.MONTHS)
+# def minimal_task(search_term: str, months: int):
+#     project(search_term, months)
 
 # if __name__ == '__main__':
 #     project("dog")

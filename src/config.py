@@ -14,6 +14,8 @@ class Settings(BaseSettings):
     DEFAULT_SLEEP: float = 0.05
     DEFAULT_TIMEOUT: int = 20
     OUTPUT_PATH: str = "output"
+    SEARCH_QUERY: str = "dog"
+    MONTHS: int = 2
 
 
 try:
