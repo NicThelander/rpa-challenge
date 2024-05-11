@@ -80,7 +80,7 @@ class NewsBrowser(object):
                 driver_id = self.browser.register_driver(driver, "my_driver")
                 self.browser.switch_browser(driver_id)
             else:
-                self.browser.open_available_browser(options=options)
+                self.browser.open_available_browser(options=options, browser_selection="chrome")
             
             # setting a specific size for consistent handling
             self.browser.set_window_size(1024, 768)
