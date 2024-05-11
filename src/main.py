@@ -64,12 +64,8 @@ def project(search_term, months=1):
         raise
 
 @task
-def minimal_task(*args, **kwargs):
-    print(args)
-    print(kwargs)
-    project(*args, **kwargs)
-# def minimal_task(search_term="dog", months=1):
-#     project(search_term, months)
+def minimal_task(search_term: str, months: int):
+    project(search_term, months)
 
 # if __name__ == '__main__':
 #     project("dog")

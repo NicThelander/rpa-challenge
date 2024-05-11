@@ -1,13 +1,17 @@
+# built ins
 from datetime import datetime
 import re
 import time
 from typing import Any, Callable, Dict, List, Union
+
+# installed libs
 import pandas as pd
-from logger import Logger
 from RPA.Browser.Selenium import WebDriverWait
 from selenium.webdriver.remote.webdriver import WebDriver, WebElement
+
+# project modules
+from logger import Logger
 from config import settings
-# TODO: sort imports
 
 
 def output_excel_data(logger: Logger, path: str, data: List[Dict[str, str]]) -> None:
@@ -40,8 +44,6 @@ def output_excel_data(logger: Logger, path: str, data: List[Dict[str, str]]) -> 
             "Failed to output data to excel - see above for error info"
         )
 
-# TODO: sort out documentation on all functions following sphinx style
-# (going with this as it's supported in vscode)
 def wait_and_retrieve_item(
     logger: Logger,
     driver: WebDriver,
@@ -89,7 +91,6 @@ def wait_and_retrieve_item(
         - when failing to locate element
     """
     try:
-        # TODO: look at xpath handling
         element: Union[
             Callable[[WebDriver], WebElement],
             Callable[[WebDriver], List[WebElement]]
@@ -137,7 +138,6 @@ def interact_with_element(
             - when failing to interact with the element
     """
     try:
-        # TODO: look at xpath handling
         element_interaction(*params)
         time.sleep(sleep_duration)
     except Exception as e:
@@ -146,7 +146,6 @@ def interact_with_element(
             "Failed to interact with element - see above for error info"
         )
 
-# TODO: docstring
 def extract_date(logger: Logger, published_string: str) -> datetime:
     """Attempts to extract the date from the published string
     

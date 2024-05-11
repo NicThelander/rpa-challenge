@@ -32,3 +32,661 @@
 [2024-05-11 13:24:41][INFO]: Could not retrieve image name for this card
 [2024-05-11 13:24:44][INFO]: on card 22
 [2024-05-11 13:24:46][INFO]: search complete for dog
+[2024-05-11 14:16:54][INFO]: Setting up rpa_project
+[2024-05-11 14:16:54][INFO]: Environment set to local
+[2024-05-11 14:16:54][INFO]: Logging level set to INFO
+[2024-05-11 14:16:54][INFO]: Logging to ../logs/rpa_project.log
+[2024-05-11 14:16:54][INFO]: Logger setup complete
+[2024-05-11 14:16:54][INFO]: Instantiating NewsBrowser
+[2024-05-11 14:16:54][INFO]: NewsBrowser initialized
+[2024-05-11 14:16:54][INFO]: Instantiating NewsBrowser
+[2024-05-11 14:16:59][INFO]: entering search function
+[2024-05-11 14:17:07][INFO]: going through cards
+[2024-05-11 14:17:07][INFO]: on card 1
+[2024-05-11 14:17:12][INFO]: on card 2
+[2024-05-11 14:17:18][INFO]: on card 3
+[2024-05-11 14:17:21][INFO]: on card 4
+[2024-05-11 14:17:25][INFO]: on card 5
+[2024-05-11 14:17:28][INFO]: on card 6
+[2024-05-11 14:17:31][INFO]: on card 7
+[2024-05-11 14:17:34][INFO]: on card 8
+[2024-05-11 14:17:37][INFO]: on card 9
+[2024-05-11 14:17:40][INFO]: on card 10
+[2024-05-11 14:17:44][ERROR]: Failed to interact with element, reason: Message: element click intercepted: Element <span class="p-button-label">...</span> is not clickable at point (95, 744). Other element would receive the click: <div class="StyledBackgroundWrapper__BackgroundWrapper-sc-4136c0-0 brbwAg winters-c-bravo Campaign__bravoLayer">...</div>
+  (Session info: chrome-headless-shell=124.0.6367.78)
+Stacktrace:
+#0 0x55dd87314813 <unknown>
+#1 0x55dd86ff921b <unknown>
+#2 0x55dd8704bd43 <unknown>
+#3 0x55dd870498dd <unknown>
+#4 0x55dd870471a8 <unknown>
+#5 0x55dd8704650b <unknown>
+#6 0x55dd87039760 <unknown>
+#7 0x55dd870684d2 <unknown>
+#8 0x55dd870390c0 <unknown>
+#9 0x55dd8706869e <unknown>
+#10 0x55dd87087348 <unknown>
+#11 0x55dd87068273 <unknown>
+#12 0x55dd8703742c <unknown>
+#13 0x55dd870381fe <unknown>
+#14 0x55dd872dfd6e <unknown>
+#15 0x55dd872e3146 <unknown>
+#16 0x55dd872e2c2f <unknown>
+#17 0x55dd872e3625 <unknown>
+#18 0x55dd872d046b <unknown>
+#19 0x55dd872e3a11 <unknown>
+#20 0x55dd872bc0e3 <unknown>
+#21 0x55dd87304335 <unknown>
+#22 0x55dd873044e0 <unknown>
+#23 0x55dd87313b16 <unknown>
+#24 0x7f6ab8958947 start_thread
+#25 0x7f6ab89de970 __clone3
+
+Traceback (most recent call last):
+
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x7f348c4b3470, file "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundl...
+           └ <function _run_code at 0x7f348c2b6200>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x7f348c4b3470, file "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundl...
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x7f348ae16ac0>
+    └ <module 'debugpy.server.cli' from '/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debu...
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x7f348ae16840>
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ '/home/nic/Documents/rpa_challenge/src/main.py'
+    │     └ <function run_path at 0x7f348b39fc40>
+    └ <module '_pydevd_bundle.pydevd_runpy' from '/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/...
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x7f348ae74710, file "/home/nic/Documents/rpa_challenge/src/main.py", line 1>
+           └ <function _run_module_code at 0x7f348b39f880>
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': '/home/nic/Doc...
+    │         └ <code object <module> at 0x7f348ae74710, file "/home/nic/Documents/rpa_challenge/src/main.py", line 1>
+    └ <function _run_code at 0x7f348b39f420>
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': '/home/nic/Doc...
+         └ <code object <module> at 0x7f348ae74710, file "/home/nic/Documents/rpa_challenge/src/main.py", line 1>
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 71, in <module>
+    project("dog")
+    └ <function project at 0x7f348ad17240>
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 48, in project
+    output_data = news_browser.search_articles(
+                  │            └ <function NewsBrowser.search_articles at 0x7f345112d620>
+                  └ <helpers.browsing.NewsBrowser object at 0x7f3472b73050>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 249, in search_articles
+    self.load_more_cards()
+    │    └ <function NewsBrowser.load_more_cards at 0x7f345112d580>
+    └ <helpers.browsing.NewsBrowser object at 0x7f3472b73050>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 144, in load_more_cards
+    interact_with_element(
+    └ <function interact_with_element at 0x7f345112d1c0>
+
+> File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 141, in interact_with_element
+    element_interaction(*params)
+    │                    └ []
+    └ <bound method WebElement.click of <selenium.webdriver.remote.webelement.WebElement (session="908538a330e4635f0870c1de4241c199...
+
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 93, in click
+    self._execute(Command.CLICK_ELEMENT)
+    │    │        │       └ 'clickElement'
+    │    │        └ <class 'selenium.webdriver.remote.command.Command'>
+    │    └ <function WebElement._execute at 0x7f3473cbfe20>
+    └ <selenium.webdriver.remote.webelement.WebElement (session="908538a330e4635f0870c1de4241c199", element="f.60B0D21C75B0A403362D...
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 394, in _execute
+    return self._parent.execute(command, params)
+           │    │       │       │        └ {'id': 'f.60B0D21C75B0A403362DAF671F57194F.d.14D2CB1444F2BF87D851418B8D907E4A.e.49'}
+           │    │       │       └ 'clickElement'
+           │    │       └ <function WebDriver.execute at 0x7f3473d08900>
+           │    └ <selenium.webdriver.chrome.webdriver.WebDriver (session="908538a330e4635f0870c1de4241c199")>
+           └ <selenium.webdriver.remote.webelement.WebElement (session="908538a330e4635f0870c1de4241c199", element="f.60B0D21C75B0A403362D...
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+    │    │             │              └ {'status': 400, 'value': '{"value":{"error":"element click intercepted","message":"element click intercepted: Element \\u003C...
+    │    │             └ <function ErrorHandler.check_response at 0x7f3473c89300>
+    │    └ <selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7f3451d80f10>
+    └ <selenium.webdriver.chrome.webdriver.WebDriver (session="908538a330e4635f0870c1de4241c199")>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+          │               │        │       └ ['#0 0x55dd87314813 <unknown>', '#1 0x55dd86ff921b <unknown>', '#2 0x55dd8704bd43 <unknown>', '#3 0x55dd870498dd <unknown>', ...
+          │               │        └ None
+          │               └ 'element click intercepted: Element <span class="p-button-label">...</span> is not clickable at point (95, 744). Other elemen...
+          └ <class 'selenium.common.exceptions.ElementClickInterceptedException'>
+
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <span class="p-button-label">...</span> is not clickable at point (95, 744). Other element would receive the click: <div class="StyledBackgroundWrapper__BackgroundWrapper-sc-4136c0-0 brbwAg winters-c-bravo Campaign__bravoLayer">...</div>
+  (Session info: chrome-headless-shell=124.0.6367.78)
+Stacktrace:
+#0 0x55dd87314813 <unknown>
+#1 0x55dd86ff921b <unknown>
+#2 0x55dd8704bd43 <unknown>
+#3 0x55dd870498dd <unknown>
+#4 0x55dd870471a8 <unknown>
+#5 0x55dd8704650b <unknown>
+#6 0x55dd87039760 <unknown>
+#7 0x55dd870684d2 <unknown>
+#8 0x55dd870390c0 <unknown>
+#9 0x55dd8706869e <unknown>
+#10 0x55dd87087348 <unknown>
+#11 0x55dd87068273 <unknown>
+#12 0x55dd8703742c <unknown>
+#13 0x55dd870381fe <unknown>
+#14 0x55dd872dfd6e <unknown>
+#15 0x55dd872e3146 <unknown>
+#16 0x55dd872e2c2f <unknown>
+#17 0x55dd872e3625 <unknown>
+#18 0x55dd872d046b <unknown>
+#19 0x55dd872e3a11 <unknown>
+#20 0x55dd872bc0e3 <unknown>
+#21 0x55dd87304335 <unknown>
+#22 0x55dd873044e0 <unknown>
+#23 0x55dd87313b16 <unknown>
+#24 0x7f6ab8958947 start_thread
+#25 0x7f6ab89de970 __clone3
+
+[2024-05-11 14:18:01][ERROR]: Failed to load more cards, reason: Failed to interact with element - see above for error info
+Traceback (most recent call last):
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 141, in interact_with_element
+    element_interaction(*params)
+    │                    └ []
+    └ <bound method WebElement.click of <selenium.webdriver.remote.webelement.WebElement (session="908538a330e4635f0870c1de4241c199...
+
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 93, in click
+    self._execute(Command.CLICK_ELEMENT)
+    │    │        │       └ 'clickElement'
+    │    │        └ <class 'selenium.webdriver.remote.command.Command'>
+    │    └ <function WebElement._execute at 0x7f3473cbfe20>
+    └ <selenium.webdriver.remote.webelement.WebElement (session="908538a330e4635f0870c1de4241c199", element="f.60B0D21C75B0A403362D...
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 394, in _execute
+    return self._parent.execute(command, params)
+           │    │       │       │        └ {'id': 'f.60B0D21C75B0A403362DAF671F57194F.d.14D2CB1444F2BF87D851418B8D907E4A.e.49'}
+           │    │       │       └ 'clickElement'
+           │    │       └ <function WebDriver.execute at 0x7f3473d08900>
+           │    └ <selenium.webdriver.chrome.webdriver.WebDriver (session="908538a330e4635f0870c1de4241c199")>
+           └ <selenium.webdriver.remote.webelement.WebElement (session="908538a330e4635f0870c1de4241c199", element="f.60B0D21C75B0A403362D...
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+    │    │             │              └ {'status': 400, 'value': '{"value":{"error":"element click intercepted","message":"element click intercepted: Element \\u003C...
+    │    │             └ <function ErrorHandler.check_response at 0x7f3473c89300>
+    │    └ <selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7f3451d80f10>
+    └ <selenium.webdriver.chrome.webdriver.WebDriver (session="908538a330e4635f0870c1de4241c199")>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+          │               │        │       └ ['#0 0x55dd87314813 <unknown>', '#1 0x55dd86ff921b <unknown>', '#2 0x55dd8704bd43 <unknown>', '#3 0x55dd870498dd <unknown>', ...
+          │               │        └ None
+          │               └ 'element click intercepted: Element <span class="p-button-label">...</span> is not clickable at point (95, 744). Other elemen...
+          └ <class 'selenium.common.exceptions.ElementClickInterceptedException'>
+
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <span class="p-button-label">...</span> is not clickable at point (95, 744). Other element would receive the click: <div class="StyledBackgroundWrapper__BackgroundWrapper-sc-4136c0-0 brbwAg winters-c-bravo Campaign__bravoLayer">...</div>
+  (Session info: chrome-headless-shell=124.0.6367.78)
+Stacktrace:
+#0 0x55dd87314813 <unknown>
+#1 0x55dd86ff921b <unknown>
+#2 0x55dd8704bd43 <unknown>
+#3 0x55dd870498dd <unknown>
+#4 0x55dd870471a8 <unknown>
+#5 0x55dd8704650b <unknown>
+#6 0x55dd87039760 <unknown>
+#7 0x55dd870684d2 <unknown>
+#8 0x55dd870390c0 <unknown>
+#9 0x55dd8706869e <unknown>
+#10 0x55dd87087348 <unknown>
+#11 0x55dd87068273 <unknown>
+#12 0x55dd8703742c <unknown>
+#13 0x55dd870381fe <unknown>
+#14 0x55dd872dfd6e <unknown>
+#15 0x55dd872e3146 <unknown>
+#16 0x55dd872e2c2f <unknown>
+#17 0x55dd872e3625 <unknown>
+#18 0x55dd872d046b <unknown>
+#19 0x55dd872e3a11 <unknown>
+#20 0x55dd872bc0e3 <unknown>
+#21 0x55dd87304335 <unknown>
+#22 0x55dd873044e0 <unknown>
+#23 0x55dd87313b16 <unknown>
+#24 0x7f6ab8958947 start_thread
+#25 0x7f6ab89de970 __clone3
+
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x7f348c4b3470, file "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundl...
+           └ <function _run_code at 0x7f348c2b6200>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x7f348c4b3470, file "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundl...
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x7f348ae16ac0>
+    └ <module 'debugpy.server.cli' from '/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debu...
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x7f348ae16840>
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ '/home/nic/Documents/rpa_challenge/src/main.py'
+    │     └ <function run_path at 0x7f348b39fc40>
+    └ <module '_pydevd_bundle.pydevd_runpy' from '/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/...
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x7f348ae74710, file "/home/nic/Documents/rpa_challenge/src/main.py", line 1>
+           └ <function _run_module_code at 0x7f348b39f880>
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': '/home/nic/Doc...
+    │         └ <code object <module> at 0x7f348ae74710, file "/home/nic/Documents/rpa_challenge/src/main.py", line 1>
+    └ <function _run_code at 0x7f348b39f420>
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': '/home/nic/Doc...
+         └ <code object <module> at 0x7f348ae74710, file "/home/nic/Documents/rpa_challenge/src/main.py", line 1>
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 71, in <module>
+    project("dog")
+    └ <function project at 0x7f348ad17240>
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 48, in project
+    output_data = news_browser.search_articles(
+                  │            └ <function NewsBrowser.search_articles at 0x7f345112d620>
+                  └ <helpers.browsing.NewsBrowser object at 0x7f3472b73050>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 249, in search_articles
+    self.load_more_cards()
+    │    └ <function NewsBrowser.load_more_cards at 0x7f345112d580>
+    └ <helpers.browsing.NewsBrowser object at 0x7f3472b73050>
+
+> File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 144, in load_more_cards
+    interact_with_element(
+    └ <function interact_with_element at 0x7f345112d1c0>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 145, in interact_with_element
+    raise Exception(
+
+Exception: Failed to interact with element - see above for error info
+[2024-05-11 14:18:03][ERROR]: Failed to search for articles, reason: Failed to load more cards - see above for error info
+Traceback (most recent call last):
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 141, in interact_with_element
+    element_interaction(*params)
+    │                    └ []
+    └ <bound method WebElement.click of <selenium.webdriver.remote.webelement.WebElement (session="908538a330e4635f0870c1de4241c199...
+
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 93, in click
+    self._execute(Command.CLICK_ELEMENT)
+    │    │        │       └ 'clickElement'
+    │    │        └ <class 'selenium.webdriver.remote.command.Command'>
+    │    └ <function WebElement._execute at 0x7f3473cbfe20>
+    └ <selenium.webdriver.remote.webelement.WebElement (session="908538a330e4635f0870c1de4241c199", element="f.60B0D21C75B0A403362D...
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 394, in _execute
+    return self._parent.execute(command, params)
+           │    │       │       │        └ {'id': 'f.60B0D21C75B0A403362DAF671F57194F.d.14D2CB1444F2BF87D851418B8D907E4A.e.49'}
+           │    │       │       └ 'clickElement'
+           │    │       └ <function WebDriver.execute at 0x7f3473d08900>
+           │    └ <selenium.webdriver.chrome.webdriver.WebDriver (session="908538a330e4635f0870c1de4241c199")>
+           └ <selenium.webdriver.remote.webelement.WebElement (session="908538a330e4635f0870c1de4241c199", element="f.60B0D21C75B0A403362D...
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+    │    │             │              └ {'status': 400, 'value': '{"value":{"error":"element click intercepted","message":"element click intercepted: Element \\u003C...
+    │    │             └ <function ErrorHandler.check_response at 0x7f3473c89300>
+    │    └ <selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7f3451d80f10>
+    └ <selenium.webdriver.chrome.webdriver.WebDriver (session="908538a330e4635f0870c1de4241c199")>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+          │               │        │       └ ['#0 0x55dd87314813 <unknown>', '#1 0x55dd86ff921b <unknown>', '#2 0x55dd8704bd43 <unknown>', '#3 0x55dd870498dd <unknown>', ...
+          │               │        └ None
+          │               └ 'element click intercepted: Element <span class="p-button-label">...</span> is not clickable at point (95, 744). Other elemen...
+          └ <class 'selenium.common.exceptions.ElementClickInterceptedException'>
+
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <span class="p-button-label">...</span> is not clickable at point (95, 744). Other element would receive the click: <div class="StyledBackgroundWrapper__BackgroundWrapper-sc-4136c0-0 brbwAg winters-c-bravo Campaign__bravoLayer">...</div>
+  (Session info: chrome-headless-shell=124.0.6367.78)
+Stacktrace:
+#0 0x55dd87314813 <unknown>
+#1 0x55dd86ff921b <unknown>
+#2 0x55dd8704bd43 <unknown>
+#3 0x55dd870498dd <unknown>
+#4 0x55dd870471a8 <unknown>
+#5 0x55dd8704650b <unknown>
+#6 0x55dd87039760 <unknown>
+#7 0x55dd870684d2 <unknown>
+#8 0x55dd870390c0 <unknown>
+#9 0x55dd8706869e <unknown>
+#10 0x55dd87087348 <unknown>
+#11 0x55dd87068273 <unknown>
+#12 0x55dd8703742c <unknown>
+#13 0x55dd870381fe <unknown>
+#14 0x55dd872dfd6e <unknown>
+#15 0x55dd872e3146 <unknown>
+#16 0x55dd872e2c2f <unknown>
+#17 0x55dd872e3625 <unknown>
+#18 0x55dd872d046b <unknown>
+#19 0x55dd872e3a11 <unknown>
+#20 0x55dd872bc0e3 <unknown>
+#21 0x55dd87304335 <unknown>
+#22 0x55dd873044e0 <unknown>
+#23 0x55dd87313b16 <unknown>
+#24 0x7f6ab8958947 start_thread
+#25 0x7f6ab89de970 __clone3
+
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 144, in load_more_cards
+    interact_with_element(
+    └ <function interact_with_element at 0x7f345112d1c0>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 145, in interact_with_element
+    raise Exception(
+
+Exception: Failed to interact with element - see above for error info
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x7f348c4b3470, file "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundl...
+           └ <function _run_code at 0x7f348c2b6200>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x7f348c4b3470, file "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundl...
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x7f348ae16ac0>
+    └ <module 'debugpy.server.cli' from '/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debu...
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x7f348ae16840>
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ '/home/nic/Documents/rpa_challenge/src/main.py'
+    │     └ <function run_path at 0x7f348b39fc40>
+    └ <module '_pydevd_bundle.pydevd_runpy' from '/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/...
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x7f348ae74710, file "/home/nic/Documents/rpa_challenge/src/main.py", line 1>
+           └ <function _run_module_code at 0x7f348b39f880>
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': '/home/nic/Doc...
+    │         └ <code object <module> at 0x7f348ae74710, file "/home/nic/Documents/rpa_challenge/src/main.py", line 1>
+    └ <function _run_code at 0x7f348b39f420>
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': '/home/nic/Doc...
+         └ <code object <module> at 0x7f348ae74710, file "/home/nic/Documents/rpa_challenge/src/main.py", line 1>
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 71, in <module>
+    project("dog")
+    └ <function project at 0x7f348ad17240>
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 48, in project
+    output_data = news_browser.search_articles(
+                  │            └ <function NewsBrowser.search_articles at 0x7f345112d620>
+                  └ <helpers.browsing.NewsBrowser object at 0x7f3472b73050>
+
+> File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 249, in search_articles
+    self.load_more_cards()
+    │    └ <function NewsBrowser.load_more_cards at 0x7f345112d580>
+    └ <helpers.browsing.NewsBrowser object at 0x7f3472b73050>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 159, in load_more_cards
+    raise Exception(
+
+Exception: Failed to load more cards - see above for error info
+[2024-05-11 14:18:05][ERROR]: Project failed to start, reason: Failed to search for articles - see above for error info
+Traceback (most recent call last):
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 141, in interact_with_element
+    element_interaction(*params)
+    │                    └ []
+    └ <bound method WebElement.click of <selenium.webdriver.remote.webelement.WebElement (session="908538a330e4635f0870c1de4241c199...
+
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 93, in click
+    self._execute(Command.CLICK_ELEMENT)
+    │    │        │       └ 'clickElement'
+    │    │        └ <class 'selenium.webdriver.remote.command.Command'>
+    │    └ <function WebElement._execute at 0x7f3473cbfe20>
+    └ <selenium.webdriver.remote.webelement.WebElement (session="908538a330e4635f0870c1de4241c199", element="f.60B0D21C75B0A403362D...
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/remote/webelement.py", line 394, in _execute
+    return self._parent.execute(command, params)
+           │    │       │       │        └ {'id': 'f.60B0D21C75B0A403362DAF671F57194F.d.14D2CB1444F2BF87D851418B8D907E4A.e.49'}
+           │    │       │       └ 'clickElement'
+           │    │       └ <function WebDriver.execute at 0x7f3473d08900>
+           │    └ <selenium.webdriver.chrome.webdriver.WebDriver (session="908538a330e4635f0870c1de4241c199")>
+           └ <selenium.webdriver.remote.webelement.WebElement (session="908538a330e4635f0870c1de4241c199", element="f.60B0D21C75B0A403362D...
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+    │    │             │              └ {'status': 400, 'value': '{"value":{"error":"element click intercepted","message":"element click intercepted: Element \\u003C...
+    │    │             └ <function ErrorHandler.check_response at 0x7f3473c89300>
+    │    └ <selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7f3451d80f10>
+    └ <selenium.webdriver.chrome.webdriver.WebDriver (session="908538a330e4635f0870c1de4241c199")>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+          │               │        │       └ ['#0 0x55dd87314813 <unknown>', '#1 0x55dd86ff921b <unknown>', '#2 0x55dd8704bd43 <unknown>', '#3 0x55dd870498dd <unknown>', ...
+          │               │        └ None
+          │               └ 'element click intercepted: Element <span class="p-button-label">...</span> is not clickable at point (95, 744). Other elemen...
+          └ <class 'selenium.common.exceptions.ElementClickInterceptedException'>
+
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <span class="p-button-label">...</span> is not clickable at point (95, 744). Other element would receive the click: <div class="StyledBackgroundWrapper__BackgroundWrapper-sc-4136c0-0 brbwAg winters-c-bravo Campaign__bravoLayer">...</div>
+  (Session info: chrome-headless-shell=124.0.6367.78)
+Stacktrace:
+#0 0x55dd87314813 <unknown>
+#1 0x55dd86ff921b <unknown>
+#2 0x55dd8704bd43 <unknown>
+#3 0x55dd870498dd <unknown>
+#4 0x55dd870471a8 <unknown>
+#5 0x55dd8704650b <unknown>
+#6 0x55dd87039760 <unknown>
+#7 0x55dd870684d2 <unknown>
+#8 0x55dd870390c0 <unknown>
+#9 0x55dd8706869e <unknown>
+#10 0x55dd87087348 <unknown>
+#11 0x55dd87068273 <unknown>
+#12 0x55dd8703742c <unknown>
+#13 0x55dd870381fe <unknown>
+#14 0x55dd872dfd6e <unknown>
+#15 0x55dd872e3146 <unknown>
+#16 0x55dd872e2c2f <unknown>
+#17 0x55dd872e3625 <unknown>
+#18 0x55dd872d046b <unknown>
+#19 0x55dd872e3a11 <unknown>
+#20 0x55dd872bc0e3 <unknown>
+#21 0x55dd87304335 <unknown>
+#22 0x55dd873044e0 <unknown>
+#23 0x55dd87313b16 <unknown>
+#24 0x7f6ab8958947 start_thread
+#25 0x7f6ab89de970 __clone3
+
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 144, in load_more_cards
+    interact_with_element(
+    └ <function interact_with_element at 0x7f345112d1c0>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 145, in interact_with_element
+    raise Exception(
+
+Exception: Failed to interact with element - see above for error info
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 249, in search_articles
+    self.load_more_cards()
+    │    └ <function NewsBrowser.load_more_cards at 0x7f345112d580>
+    └ <helpers.browsing.NewsBrowser object at 0x7f3472b73050>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 159, in load_more_cards
+    raise Exception(
+
+Exception: Failed to load more cards - see above for error info
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x7f348c4b3470, file "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundl...
+           └ <function _run_code at 0x7f348c2b6200>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x7f348c4b3470, file "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundl...
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x7f348ae16ac0>
+    └ <module 'debugpy.server.cli' from '/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debu...
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x7f348ae16840>
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ '/home/nic/Documents/rpa_challenge/src/main.py'
+    │     └ <function run_path at 0x7f348b39fc40>
+    └ <module '_pydevd_bundle.pydevd_runpy' from '/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/...
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x7f348ae74710, file "/home/nic/Documents/rpa_challenge/src/main.py", line 1>
+           └ <function _run_module_code at 0x7f348b39f880>
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': '/home/nic/Doc...
+    │         └ <code object <module> at 0x7f348ae74710, file "/home/nic/Documents/rpa_challenge/src/main.py", line 1>
+    └ <function _run_code at 0x7f348b39f420>
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': '/home/nic/Doc...
+         └ <code object <module> at 0x7f348ae74710, file "/home/nic/Documents/rpa_challenge/src/main.py", line 1>
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 71, in <module>
+    project("dog")
+    └ <function project at 0x7f348ad17240>
+
+> File "/home/nic/Documents/rpa_challenge/src/main.py", line 48, in project
+    output_data = news_browser.search_articles(
+                  │            └ <function NewsBrowser.search_articles at 0x7f345112d620>
+                  └ <helpers.browsing.NewsBrowser object at 0x7f3472b73050>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 427, in search_articles
+    raise Exception(
+
+Exception: Failed to search for articles - see above for error info
+[2024-05-11 14:28:43][INFO]: Setting up rpa_project
+[2024-05-11 14:28:43][INFO]: Environment set to local
+[2024-05-11 14:28:43][INFO]: Logging level set to INFO
+[2024-05-11 14:28:43][INFO]: Logging to logs/rpa_project.log
+[2024-05-11 14:28:43][INFO]: Logger setup complete
+[2024-05-11 14:28:43][INFO]: Instantiating NewsBrowser
+[2024-05-11 14:28:43][INFO]: NewsBrowser initialized
+[2024-05-11 14:28:43][INFO]: Instantiating NewsBrowser
+[2024-05-11 14:28:47][INFO]: entering search function
+[2024-05-11 14:28:59][INFO]: going through cards
+[2024-05-11 14:28:59][INFO]: on card 1
+[2024-05-11 14:29:04][INFO]: on card 2
+[2024-05-11 14:29:10][INFO]: on card 3
+[2024-05-11 14:29:14][INFO]: on card 4
+[2024-05-11 14:29:18][INFO]: on card 5
+[2024-05-11 14:29:21][INFO]: on card 6
+[2024-05-11 14:32:01][INFO]: Setting up rpa_project
+[2024-05-11 14:32:01][INFO]: Environment set to local
+[2024-05-11 14:32:01][INFO]: Logging level set to INFO
+[2024-05-11 14:32:01][INFO]: Logging to logs/rpa_project.log
+[2024-05-11 14:32:01][INFO]: Logger setup complete
+[2024-05-11 14:32:01][INFO]: Instantiating NewsBrowser
+[2024-05-11 14:32:01][INFO]: NewsBrowser initialized
+[2024-05-11 14:32:01][INFO]: Instantiating NewsBrowser
+[2024-05-11 14:37:05][INFO]: Setting up rpa_project
+[2024-05-11 14:37:05][INFO]: Environment set to local
+[2024-05-11 14:37:05][INFO]: Logging level set to INFO
+[2024-05-11 14:37:05][INFO]: Logging to logs/rpa_project.log
+[2024-05-11 14:37:05][INFO]: Logger setup complete
+[2024-05-11 14:37:05][INFO]: Instantiating NewsBrowser
+[2024-05-11 14:37:05][INFO]: NewsBrowser initialized
+[2024-05-11 14:37:05][INFO]: Instantiating NewsBrowser
+[2024-05-11 14:37:10][INFO]: entering search function
+[2024-05-11 14:37:20][INFO]: going through cards
+[2024-05-11 14:37:20][INFO]: on card 1
+[2024-05-11 14:37:25][INFO]: on card 2
+[2024-05-11 14:37:29][INFO]: on card 3
+[2024-05-11 14:37:33][INFO]: on card 4
+[2024-05-11 14:37:36][INFO]: on card 5

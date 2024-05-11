@@ -3,7 +3,6 @@ import re
 import time
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from typing import Callable
 
 # installed libs
 from RPA.Browser.Selenium import (
@@ -74,7 +73,7 @@ class NewsBrowser(object):
             if self.ENV == "local":
                 service = webdriver.ChromeService(
                     executable_path="/usr/bin/chromedriver",
-                    log_output="../logs/chrome_driver.log"
+                    log_output="logs/chrome_driver.log"
                 )
 
                 driver = webdriver.Chrome(options=options, service=service)
@@ -112,9 +111,19 @@ class NewsBrowser(object):
                 "Failed to close browser - see above for error info")
     
     def load_more_cards(self):
+        """loads more cards on the Gothamist website
+        
+        #### Returns
+        ------
+            - None
+            
+        #### Raises
+        ------
+            - Exception
+                - when failing to load more cards
+        """
         try:
             button_path = "//button/span[contains(text(), 'Load More')]"
-            # TODO: move queries over to xpath like this
             load_more_button: WebElement = wait_and_retrieve_item(
                 self.logger,
                 driver=self.browser.driver,
@@ -150,7 +159,6 @@ class NewsBrowser(object):
             raise Exception(
                 "Failed to load more cards - see above for error info")
 
-    # TODO: docstrings
     def search_articles(
             self,
             output_sub_dir: str,
@@ -158,7 +166,30 @@ class NewsBrowser(object):
             months: int = 1
         ):
         """
-        Search for articles on the Gothamist website based on the query"""
+        Search for articles on the Gothamist website based on the query
+        
+        #### Parameters
+        ------
+        1. output_sub_dir : str
+            - sub directory to save the output
+        2. query : str
+        - search term to search for
+        3. months : int, (default=1)
+        - number of months to search back for articles
+        
+        #### Returns
+        ------
+        - List[Dict[str, Any]]
+            - list of dictionaries containing the article details
+            - (title, description, search_phrase_count, money_value_present,
+            - date_published)
+            
+        #### Raises
+        ------
+        - Exception
+            - when failing to search for articles
+            
+        """
         try:
             self.logger.info("entering search function")
 
@@ -210,11 +241,6 @@ class NewsBrowser(object):
 
             self.logger.info("going through cards")
 
-            # for card in cards:
-            # TODO: while months not equal to max months and there are still
-            # new cards coming in with load more (note gothamist does seem to
-            # have a max of 100 articles for a search - relay this info
-            # in the return data
             fresh_retrieval = True
             while latest_date > articles_start_date and index < cards_length:
                 if fresh_retrieval:
@@ -228,145 +254,147 @@ class NewsBrowser(object):
                 index += 1
                 self.logger.info(f"on card {index}")
 
-                # TODO: if fresh retrieval click load more and continue (so we can get new cards immediately by the time this is done - also look at adding in a timer duration after anyways - so like request every 2 seconds for 10 attempts as this should give us enough time, also consider checking site loading errors here)
-
-                # TODO: start a try except here where we continue with other
-                # cards if it fails to respond
-
-                article_details = {}
-
-                # retrieve the image url
-                image_url: WebElement = wait_and_retrieve_item(
-                    self.logger,
-                    driver=card,
-                    expected_condition=EC.presence_of_element_located,
-                    by=By.CSS_SELECTOR,
-                    identifier=".image.native-image.prime-img-class"
-                ).get_attribute('src')
-                article_details["image_url"] = image_url
-                self.browser.execute_javascript(f"window.open('{image_url}');")
-                
-                self.browser.driver.switch_to.window(
-                    self.browser.driver.window_handles[-1])
-                
-                # get the image name after the url redirect (need to load the
-                # page to get the image name)
                 try:
-                    WebDriverWait(self.browser.driver, 10).until(
-                        lambda driver: driver.current_url != 'about:blank'
-                    )
-                except:
-                    self.logger.info(
-                        "Could not retrieve image name for this card"
-                        )
-                if self.browser.driver.current_url == 'about:blank':
-                    img_name = "failed to retrieve image name"
-                else:
-                    img_name = self.browser.driver.current_url.split(
-                    'https://images-prod.gothamist.com/images/', 1)[1]
+                    article_details = {}
+
+                    # retrieve the image url
+                    image_url: WebElement = wait_and_retrieve_item(
+                        self.logger,
+                        driver=card,
+                        expected_condition=EC.presence_of_element_located,
+                        by=By.CSS_SELECTOR,
+                        identifier=".image.native-image.prime-img-class"
+                    ).get_attribute('src')
+                    article_details["image_url"] = image_url
+                    self.browser.execute_javascript(f"window.open('{image_url}');")
                     
-                    self.RPA_HTTP.download(
-                        image_url,
-                        f"{settings.OUTPUT_PATH}/{output_sub_dir}/{img_name}"
+                    self.browser.driver.switch_to.window(
+                        self.browser.driver.window_handles[-1])
+                    
+                    # get the image name after the url redirect (need to load
+                    # the page to get the image name)
+                    try:
+                        WebDriverWait(self.browser.driver, 10).until(
+                            lambda driver: driver.current_url != 'about:blank'
+                        )
+                    except:
+                        self.logger.info(
+                            "Could not retrieve image name for this card"
+                            )
+                    if self.browser.driver.current_url == 'about:blank':
+                        img_name = "failed to retrieve image name"
+                    else:
+                        img_name = self.browser.driver.current_url.split(
+                        'https://images-prod.gothamist.com/images/', 1)[1]
+                        
+                        self.RPA_HTTP.download(
+                            image_url,
+                            f"{settings.OUTPUT_PATH}/{output_sub_dir}/{img_name}"
+                        )
+
+
+                    article_details["image_name"] = img_name
+
+                    self.browser.driver.close()
+                    self.browser.driver.switch_to.window(
+                        self.browser.driver.window_handles[0])
+
+                    
+                    # we load the article and image url as early as possible here
+                    # so that we can get to them after the rest of the processing
+                    # because it takes a while to load in the date (happens after
+                    # everything else is done)
+                    article_link: WebElement = wait_and_retrieve_item(
+                        self.logger,
+                        driver=card,
+                        expected_condition=EC.presence_of_element_located,
+                        by=By.CLASS_NAME,
+                        identifier="image-with-caption-image-link"
+                    ).get_attribute('href')
+                    self.browser.execute_javascript(
+                        f"window.open('{article_link}');")
+
+
+                    title: WebElement = wait_and_retrieve_item(
+                        self.logger,
+                        driver=card,
+                        expected_condition=EC.presence_of_element_located,
+                        by=By.CLASS_NAME,
+                        identifier="h2"
+                    ).text
+                    
+
+                    article_details["title"] = title
+
+                    description: WebElement = wait_and_retrieve_item(
+                        self.logger,
+                        driver=card,
+                        expected_condition=EC.presence_of_element_located,
+                        by=By.CLASS_NAME,
+                        identifier="desc"
+                    ).text
+                    
+
+                    article_details["description"] = description
+
+                    combined_title_description = title + description
+
+                    search_phrase_count = combined_title_description.count(query)
+                    article_details["search_phrase_count"] = search_phrase_count
+
+                    money_regex = r"\$\d+(,\d{3})*(\.\d{1,2})?|\d+ dollars|\d+ USD"
+
+                    money_value_present = bool(
+                        re.search(money_regex, combined_title_description))
+
+                    article_details["money_value_present"] = money_value_present
+
+                    # go and get the details of the article page we opened earlier
+                    self.browser.driver.switch_to.window(
+                        self.browser.driver.window_handles[-1])
+                    # get the image name after the url (need to load the page to
+                    # get the image name)
+                    date_published_element: WebElement = wait_and_retrieve_item(
+                        self.logger,
+                        driver=self.browser.driver,
+                        expected_condition=EC.presence_of_element_located,
+                        by=By.CSS_SELECTOR,
+                        identifier=".date-published p.type-caption"
+                    )
+
+                    _ = wait_and_retrieve_item(
+                        self.logger,
+                        driver=self.browser.driver,
+                        expected_condition=EC.text_to_be_present_in_element,
+                        by=By.CSS_SELECTOR,
+                        identifier=".date-published p.type-caption",
+                        additional_params=[date_published_element.text]
                     )
 
 
-                article_details["image_name"] = img_name
+                    date_published = date_published_element.get_attribute(
+                        "textContent")
 
-                self.browser.driver.close()
-                self.browser.driver.switch_to.window(
-                    self.browser.driver.window_handles[0])
+                    article_details["date_published"] = extract_date(
+                        logger=self.logger,
+                        published_string=date_published
+                    )
+                    
+                    self.browser.driver.close()
+                    self.browser.driver.switch_to.window(
+                        self.browser.driver.window_handles[0])
+                    
+                    
+                    latest_date = article_details["date_published"]
 
-                
-                # we load the article and image url as early as possible here
-                # so that we can get to them after the rest of the processing
-                # because it takes a while to load in the date (happens after
-                # everything else is done)
-                article_link: WebElement = wait_and_retrieve_item(
-                    self.logger,
-                    driver=card,
-                    expected_condition=EC.presence_of_element_located,
-                    by=By.CLASS_NAME,
-                    identifier="image-with-caption-image-link"
-                ).get_attribute('href')
-                self.browser.execute_javascript(
-                    f"window.open('{article_link}');")
-
-
-                title: WebElement = wait_and_retrieve_item(
-                    self.logger,
-                    driver=card,
-                    expected_condition=EC.presence_of_element_located,
-                    by=By.CLASS_NAME,
-                    identifier="h2"
-                ).text
-                
-
-                article_details["title"] = title
-
-                description: WebElement = wait_and_retrieve_item(
-                    self.logger,
-                    driver=card,
-                    expected_condition=EC.presence_of_element_located,
-                    by=By.CLASS_NAME,
-                    identifier="desc"
-                ).text
-                
-
-                article_details["description"] = description
-
-                combined_title_description = title + description
-
-                search_phrase_count = combined_title_description.count(query)
-                article_details["search_phrase_count"] = search_phrase_count
-
-                money_regex = r"\$\d+(,\d{3})*(\.\d{1,2})?|\d+ dollars|\d+ USD"
-
-                money_value_present = bool(
-                    re.search(money_regex, combined_title_description))
-
-                article_details["money_value_present"] = money_value_present
-
-                # go and get the details of the article page we opened earlier
-                self.browser.driver.switch_to.window(
-                    self.browser.driver.window_handles[-1])
-                # get the image name after the url (need to load the page to
-                # get the image name)
-                date_published_element: WebElement = wait_and_retrieve_item(
-                    self.logger,
-                    driver=self.browser.driver,
-                    expected_condition=EC.presence_of_element_located,
-                    by=By.CSS_SELECTOR,
-                    identifier=".date-published p.type-caption"
-                )
-
-                _ = wait_and_retrieve_item(
-                    self.logger,
-                    driver=self.browser.driver,
-                    expected_condition=EC.text_to_be_present_in_element,
-                    by=By.CSS_SELECTOR,
-                    identifier=".date-published p.type-caption",
-                    additional_params=[date_published_element.text]
-                )
-
-
-                date_published = date_published_element.get_attribute(
-                    "textContent")
-
-                article_details["date_published"] = extract_date(
-                    logger=self.logger,
-                    published_string=date_published
-                )
-                
-                self.browser.driver.close()
-                self.browser.driver.switch_to.window(
-                    self.browser.driver.window_handles[0])
-                
-                
-                latest_date = article_details["date_published"]
-
-                if latest_date > articles_start_date:
-                    output_data.append(article_details)
+                    if latest_date > articles_start_date:
+                        output_data.append(article_details)
+                    
+                except Exception as e:
+                    self.logger.exception(
+                        f"Failed to process card {index}, reason: {e}")
+                    self.info("continuing to process the rest of the cards...")
+                    
 
                 if index == cards_length:
                     new_card_request_count = 0
@@ -400,6 +428,22 @@ class NewsBrowser(object):
                 "Failed to search for articles - see above for error info")
 
     def screenshot(self, title: str = f"{settings.PROJECT_TITLE}-screenshot"):
+        """takes a screenshot of the current page
+        
+        #### Parameters
+        ------
+        1. title : str, (default=f"{settings.PROJECT_TITLE}-screenshot")
+            - title of the screenshot
+            
+        #### Returns
+        ------
+        - None
+        
+        #### Raises
+        ------
+        - Exception
+            - when failing to take a screenshot
+        """
         try:
             timestamp = datetime.now()
             path = f"{settings.SCREENSHOT_FOLDER_PATH}/{title}-{timestamp}.png"
