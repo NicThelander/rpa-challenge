@@ -17,7 +17,7 @@ from logger import setup_logger
 
 # went with a plain non async setup as unfamiliar with robocorp and how it
 # plays with the async libraries
-def project(search_term, months=1):
+def project(search_term="dog", months=1):
     try:
         logger = setup_logger()
         logger.info(f"Setting up {settings.PROJECT_TITLE}")
@@ -66,8 +66,10 @@ def project(search_term, months=1):
         raise
 
 @task
-def minimal_task(search_term="dog", months=1):
-    project(search_term, months)
+def minimal_task():
+    project()
+# def minimal_task(search_term="dog", months=1):
+#     project(search_term, months)
 
 # if __name__ == '__main__':
 #     project("dog")

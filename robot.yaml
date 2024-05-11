@@ -3,7 +3,7 @@
 
 tasks:
   Run Task:
-    shell: python -m robocorp.tasks run main.py
+    shell: bash ./launch_script.sh
 
 environmentConfigs:
   - environment_windows_amd64_freeze.yaml
@@ -14,7 +14,7 @@ environmentConfigs:
 artifactsDir: output
 
 PATH:
- - ./src
+ - .
 PYTHONPATH:
   - .
 ignoreFiles:

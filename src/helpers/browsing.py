@@ -32,8 +32,6 @@ class NewsBrowser(object):
     def __init__(self, logger: Logger):
         # no try-except here because parent wrapped in try catch and will log
         # and crash there if something goes wrong here
-        # TODO: look at adding implicity wait and action chain delay once
-        # project setup and running on robocloud
         self.browser = Selenium()
         self.logger = logger
         self.ENV = settings.ENV
@@ -44,20 +42,21 @@ class NewsBrowser(object):
 
     def open_browser(self, url):
         try:
+        
+            # options for the headless browser
+            options = webdriver.ChromeOptions()
+            # local usage
+            options.add_argument("--headless")
+            options.add_argument("--no-sandbox")
+            options.add_argument("--disable-dev-shm-usage")
+            # TODO: apply these options to the browser for robocloud too
+            # popup blocking
+            options.add_experimental_option("prefs", {
+                "profile.default_content_setting_values.notifications": 2
+            })
             # using WSL locally with headless chrome so want to be able to have
             # this work locally and in the cloud based on options
             if self.ENV == "local":
-                # options for the headless browser
-                options = webdriver.ChromeOptions()
-                # local usage
-                options.add_argument("--headless")
-                options.add_argument("--no-sandbox")
-                options.add_argument("--disable-dev-shm-usage")
-                # TODO: apply these options to the browser for robocloud too
-                # popup blocking
-                options.add_experimental_option("prefs", {
-                    "profile.default_content_setting_values.notifications": 2
-                })
                 service = webdriver.ChromeService(
                     executable_path="/usr/bin/chromedriver",
                     log_output="../logs/chrome_driver.log"
@@ -67,7 +66,7 @@ class NewsBrowser(object):
                 driver_id = self.browser.register_driver(driver, "my_driver")
                 self.browser.switch_browser(driver_id)
             else:
-                self.browser.open_available_browser()
+                self.browser.open_available_browser(options=options)
             
             # setting a specific size for consistent handling
             self.browser.set_window_size(1024, 768)
@@ -238,12 +237,11 @@ class NewsBrowser(object):
                 self.browser.driver.switch_to.window(
                     self.browser.driver.window_handles[-1])
                 
-                
-                
+        
                 # get the image name after the url redirect (need to load the
                 # page to get the image name)
                 try:
-                    WebDriverWait(self.browser.driver, 20).until(
+                    WebDriverWait(self.browser.driver, 10).until(
                         lambda driver: driver.current_url != 'about:blank'
                     )
                 except:
