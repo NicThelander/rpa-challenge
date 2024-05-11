@@ -6,6 +6,7 @@ import os
 # installed libs
 from loguru import logger
 from selenium.webdriver.chrome.options import Options
+from robocorp.tasks import task
 
 # project modules
 from config import settings
@@ -53,11 +54,6 @@ def project(search_term, months=1):
         )
         news_browser.close_browsers()
 
-        # example_data = [
-        #     {'Header1': 'Value1', 'Header2': 'Value4', 'Header3': 'Value7'},
-        #     {'Header1': 'Value2', 'Header2': 'Value5', 'Header3': 'Value8'},
-        #     {'Header1': 'Value3', 'Header2': 'Value6', 'Header3': 'Value9'},
-        # ]
         path = f"{settings.OUTPUT_PATH}/{output_sub_folder}/output.xlsx"
         output_excel_data(
             logger=logger,
@@ -69,10 +65,9 @@ def project(search_term, months=1):
         logger.exception(f"Project failed to start, reason: {e}")
         raise
 
-# @task
-# def minimal_task(search_term, months=1):
-#     project(search_term, months)
+@task
+def minimal_task(search_term, months=1):
+    project(search_term, months)
 
-if __name__ == '__main__':
-
-    project("dog")
+# if __name__ == '__main__':
+#     project("dog")
