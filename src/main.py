@@ -7,6 +7,8 @@ import os
 from loguru import logger
 from selenium.webdriver.chrome.options import Options
 from robocorp.tasks import task
+from robocorp import workitems
+# from RPA.Robocorp.WorkItems import WorkItems
 
 # project modules
 from config import settings
@@ -65,7 +67,10 @@ def project(search_term, months=1):
 
 @task
 def minimal_task():
-    project(settings.SEARCH_QUERY, settings.MONTHS)
-    
+    item = workitems.inputs.current
+    search_query = item.payload.get("search_query")
+    months = item.payload.get("months")
+    project(search_query, months)
+
 # if __name__ == '__main__':
 #     project("dog")
