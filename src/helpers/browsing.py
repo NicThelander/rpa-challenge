@@ -7,7 +7,6 @@ from dateutil.relativedelta import relativedelta
 # installed libs
 from RPA.Browser.Selenium import (
     Selenium,
-    WebDriverWait,
     expected_conditions as EC,
     By
 )
@@ -15,7 +14,10 @@ from RPA.HTTP import HTTP
 from selenium import webdriver
 from selenium.webdriver.common import keys
 from selenium.webdriver.remote.webdriver import WebElement
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import (
+    NoSuchElementException,
+    NoSuchWindowException
+)
 
 # project modules
 from config import settings
@@ -424,6 +426,10 @@ class NewsBrowser(object):
 
             return output_data
 
+        except NoSuchWindowException:
+            # happens when certain images fail to download, we want to continue
+            # with the other cards in this case
+            pass
         except Exception as e:
             self.logger.exception(
                 f"Failed to search for articles, reason: {e}")

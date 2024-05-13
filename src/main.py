@@ -4,8 +4,6 @@ from datetime import datetime
 import os
 
 # installed libs
-from loguru import logger
-from selenium.webdriver.chrome.options import Options
 from robocorp.tasks import task
 from robocorp import workitems
 # from RPA.Robocorp.WorkItems import WorkItems

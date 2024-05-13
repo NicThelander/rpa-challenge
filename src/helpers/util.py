@@ -8,13 +8,8 @@ from typing import Any, Callable, Dict, List, Union
 import pandas as pd
 from RPA.Browser.Selenium import WebDriverWait
 from selenium.webdriver.remote.webdriver import WebDriver, WebElement
-from selenium.common.exceptions import (
-    NoSuchElementException,
-    TimeoutException,
-    NoSuchWindowException
-)
+
 from RPA.Browser.Selenium import (
-    Selenium,
     WebDriverWait,
     expected_conditions as EC,
     By
