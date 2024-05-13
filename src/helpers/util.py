@@ -148,21 +148,27 @@ def interact_with_element(
             - when failing to interact with the element
     """
     try:
+        consent_button = WebDriverWait(driver, 0.1).until(
+            EC.presence_of_element_located(
+                (By.XPATH, '//button[@class="fc-button fc-cta-consent fc-primary-button"]')
+                )
+        )
+        
+        consent_button.click()
+        time.sleep(sleep_duration)
+    except Exception as e:
+        # We just want to close popups here, we don't actually care
+        # if there is an error
+        pass
+    try:
         close_button = WebDriverWait(driver, 0.1).until(
             EC.presence_of_element_located(
                 (By.XPATH, '//button[@title="Close"]')
-                # (By.CLASS_NAME, "dillcity-CloseButton")
                 )
         )
         
         close_button.click()
         time.sleep(sleep_duration)
-    except TimeoutException:
-        # Popup is not present, do nothing
-        pass
-    except NoSuchElementException:
-        # Popup is not present, do nothing
-        pass
     except Exception as e:
         # We just want to close popups here, we don't actually care
         # if there is an error

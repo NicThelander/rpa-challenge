@@ -65,12 +65,12 @@ class NewsBrowser(object):
             options.add_argument("--no-sandbox")
             options.add_argument("--disable-dev-shm-usage")
             # popup blocking
-            options.add_experimental_option("prefs", {
-                "profile.default_content_setting_values.notifications": 2,
-                "download.prompt_for_download": True,
-                "download.directory_upgrade": True,
-                "safebrowsing.enabled": True
-            })
+            # options.add_experimental_option("prefs", {
+            #     "profile.default_content_setting_values.notifications": 2,
+            #     "download.prompt_for_download": True,
+            #     "download.directory_upgrade": True,
+            #     "safebrowsing.enabled": True
+            # })
             # using WSL locally with headless chrome so want to be able to have
             # this work locally and in the cloud based on options
             if self.ENV == "local":
