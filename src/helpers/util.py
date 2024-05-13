@@ -8,7 +8,13 @@ from typing import Any, Callable, Dict, List, Union
 import pandas as pd
 from RPA.Browser.Selenium import WebDriverWait
 from selenium.webdriver.remote.webdriver import WebDriver, WebElement
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from RPA.Browser.Selenium import (
+    Selenium,
+    WebDriverWait,
+    expected_conditions as EC,
+    By
+)
 
 # project modules
 from logger import Logger
@@ -142,11 +148,23 @@ def interact_with_element(
             - when failing to interact with the element
     """
     try:
-        close_button = driver.find_element_by_class_name("dillcity-CloseButton")
+        close_button = WebDriverWait(driver, 0.1).until(
+            EC.presence_of_element_located(
+                (By.CLASS_NAME, "dillcity-CloseButton"))
+        )
+        
         close_button.click()
+    except TimeoutException:
+        # Popup is not present, do nothing
+        pass
     except NoSuchElementException:
         # Popup is not present, do nothing
         pass
+    except Exception as e:
+        logger.exception(f"Failed to close popup, reason: {e}")
+        raise Exception(
+            "Failed to close popup - see above for error info"
+        )
     try:
         element_interaction(*params)
         time.sleep(sleep_duration)

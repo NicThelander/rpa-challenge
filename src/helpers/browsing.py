@@ -65,10 +65,12 @@ class NewsBrowser(object):
             options.add_argument("--no-sandbox")
             options.add_argument("--disable-dev-shm-usage")
             # popup blocking
-            # TODO: uncomment the popup blocking option when done getting the xpath to close the add
-            # options.add_experimental_option("prefs", {
-            #     "profile.default_content_setting_values.notifications": 2
-            # })
+            options.add_experimental_option("prefs", {
+                "profile.default_content_setting_values.notifications": 2,
+                "download.prompt_for_download": True,
+                "download.directory_upgrade": True,
+                "safebrowsing.enabled": True
+            })
             # using WSL locally with headless chrome so want to be able to have
             # this work locally and in the cloud based on options
             if self.ENV == "local":
@@ -159,6 +161,7 @@ class NewsBrowser(object):
             self.logger.info("No more cards to load.")
         except Exception as e:
             self.screenshot("load_more_cards_error")
+            # TODO: remove the print once certain the adds getting blocked
             page_source = self.browser.get_source
             print(page_source)
             self.logger.exception(

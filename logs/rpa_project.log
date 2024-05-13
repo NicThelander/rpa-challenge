@@ -737,3 +737,763 @@ Exception: Failed to search for articles - see above for error info
 [2024-05-13 19:47:42][INFO]: on card 34
 [2024-05-13 19:47:47][INFO]: on card 35
 [2024-05-13 19:47:51][INFO]: search complete for dog
+[2024-05-13 19:59:24][INFO]: Setting up rpa_project
+[2024-05-13 19:59:24][INFO]: Environment set to cloud
+[2024-05-13 19:59:24][INFO]: Logging level set to INFO
+[2024-05-13 19:59:24][INFO]: Logging to logs/rpa_project.log
+[2024-05-13 19:59:24][INFO]: Logger setup complete
+[2024-05-13 19:59:24][INFO]: Instantiating NewsBrowser
+[2024-05-13 19:59:24][INFO]: NewsBrowser initialized
+[2024-05-13 19:59:24][INFO]: Instantiating NewsBrowser
+[2024-05-13 19:59:30][INFO]: entering search function
+[2024-05-13 19:59:30][ERROR]: Failed to search for articles, reason: 'WebDriver' object has no attribute 'find_element_by_class_name'
+Traceback (most recent call last):
+
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/__main__.py", line 4, in <module>
+    main()
+    └ <function main at 0x7f3b7f9f8ae0>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/cli.py", line 78, in main
+    returncode = dispatcher.process_args(args)
+                 │          │            └ ['run', 'src/main.py']
+                 │          └ <function _ArgDispatcher.process_args at 0x7f3b7ee1dee0>
+                 └ <robocorp.tasks._argdispatch._ArgDispatcher object at 0x7f3b7f04f210>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_argdispatch.py", line 227, in process_args
+    return self._dispatch(parsed)
+           │    │         └ Namespace(command='run', path='src/main.py', glob=None, task_name=None, output_dir='', max_log_files=5, max_log_file_size='1M...
+           │    └ <function _ArgDispatcher._dispatch at 0x7f3b7ee1d940>
+           └ <robocorp.tasks._argdispatch._ArgDispatcher object at 0x7f3b7f04f210>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_argdispatch.py", line 22, in _dispatch
+    return method(**dct)
+           │        └ {'path': 'src/main.py', 'glob': None, 'task_name': None, 'output_dir': '', 'max_log_files': 5, 'max_log_file_size': '1MB', 'c...
+           └ <function run at 0x7f3b7ee1e020>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_commands.py", line 440, in run
+    result = task.run(*args, **kwargs)
+             │    │    │       └ {}
+             │    │    └ []
+             │    └ <function Task.run at 0x7f3b7eccda80>
+             └ Task(minimal_task, status: Status.NOT_RUN)
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_task.py", line 89, in run
+    return self.method(*args, **kwargs)
+           │    │       │       └ {}
+           │    │       └ ()
+           │    └ <function minimal_task at 0x7f3b566cb100>
+           └ Task(minimal_task, status: Status.NOT_RUN)
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 68, in minimal_task
+    project(settings.SEARCH_QUERY, settings.MONTHS)
+    │       │        │             │        └ 2
+    │       │        │             └ Settings(ENV='cloud', PROJECT_TITLE='rpa_project', LOGGING_FILE='logs/rpa_project.log', STARTUP_FAIL_LOG_FILE_PATH='logs/star...
+    │       │        └ 'dog'
+    │       └ Settings(ENV='cloud', PROJECT_TITLE='rpa_project', LOGGING_FILE='logs/rpa_project.log', STARTUP_FAIL_LOG_FILE_PATH='logs/star...
+    └ <function project at 0x7f3b7d30e8e0>
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 48, in project
+    output_data = news_browser.search_articles(
+                  │            └ <function NewsBrowser.search_articles at 0x7f3b566cafc0>
+                  └ <helpers.browsing.NewsBrowser object at 0x7f3b56f31590>
+
+> File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 214, in search_articles
+    interact_with_element(
+    └ <function interact_with_element at 0x7f3b56b40e00>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 145, in interact_with_element
+    close_button = driver.find_element_by_class_name("dillcity-CloseButton")
+                   └ <selenium.webdriver.chrome.webdriver.WebDriver (session="10a7e541ff89afd9c122b5d47041087c")>
+
+AttributeError: 'WebDriver' object has no attribute 'find_element_by_class_name'
+[2024-05-13 19:59:30][ERROR]: Project failed to start, reason: Failed to search for articles - see above for error info
+Traceback (most recent call last):
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 214, in search_articles
+    interact_with_element(
+    └ <function interact_with_element at 0x7f3b56b40e00>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 145, in interact_with_element
+    close_button = driver.find_element_by_class_name("dillcity-CloseButton")
+                   └ <selenium.webdriver.chrome.webdriver.WebDriver (session="10a7e541ff89afd9c122b5d47041087c")>
+
+AttributeError: 'WebDriver' object has no attribute 'find_element_by_class_name'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/__main__.py", line 4, in <module>
+    main()
+    └ <function main at 0x7f3b7f9f8ae0>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/cli.py", line 78, in main
+    returncode = dispatcher.process_args(args)
+                 │          │            └ ['run', 'src/main.py']
+                 │          └ <function _ArgDispatcher.process_args at 0x7f3b7ee1dee0>
+                 └ <robocorp.tasks._argdispatch._ArgDispatcher object at 0x7f3b7f04f210>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_argdispatch.py", line 227, in process_args
+    return self._dispatch(parsed)
+           │    │         └ Namespace(command='run', path='src/main.py', glob=None, task_name=None, output_dir='', max_log_files=5, max_log_file_size='1M...
+           │    └ <function _ArgDispatcher._dispatch at 0x7f3b7ee1d940>
+           └ <robocorp.tasks._argdispatch._ArgDispatcher object at 0x7f3b7f04f210>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_argdispatch.py", line 22, in _dispatch
+    return method(**dct)
+           │        └ {'path': 'src/main.py', 'glob': None, 'task_name': None, 'output_dir': '', 'max_log_files': 5, 'max_log_file_size': '1MB', 'c...
+           └ <function run at 0x7f3b7ee1e020>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_commands.py", line 440, in run
+    result = task.run(*args, **kwargs)
+             │    │    │       └ {}
+             │    │    └ []
+             │    └ <function Task.run at 0x7f3b7eccda80>
+             └ Task(minimal_task, status: Status.NOT_RUN)
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_task.py", line 89, in run
+    return self.method(*args, **kwargs)
+           │    │       │       └ {}
+           │    │       └ ()
+           │    └ <function minimal_task at 0x7f3b566cb100>
+           └ Task(minimal_task, status: Status.NOT_RUN)
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 68, in minimal_task
+    project(settings.SEARCH_QUERY, settings.MONTHS)
+    │       │        │             │        └ 2
+    │       │        │             └ Settings(ENV='cloud', PROJECT_TITLE='rpa_project', LOGGING_FILE='logs/rpa_project.log', STARTUP_FAIL_LOG_FILE_PATH='logs/star...
+    │       │        └ 'dog'
+    │       └ Settings(ENV='cloud', PROJECT_TITLE='rpa_project', LOGGING_FILE='logs/rpa_project.log', STARTUP_FAIL_LOG_FILE_PATH='logs/star...
+    └ <function project at 0x7f3b7d30e8e0>
+
+> File "/home/nic/Documents/rpa_challenge/src/main.py", line 48, in project
+    output_data = news_browser.search_articles(
+                  │            └ <function NewsBrowser.search_articles at 0x7f3b566cafc0>
+                  └ <helpers.browsing.NewsBrowser object at 0x7f3b56f31590>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 440, in search_articles
+    raise Exception(
+
+Exception: Failed to search for articles - see above for error info
+[2024-05-13 20:03:40][INFO]: Setting up rpa_project
+[2024-05-13 20:03:40][INFO]: Environment set to cloud
+[2024-05-13 20:03:40][INFO]: Logging level set to INFO
+[2024-05-13 20:03:40][INFO]: Logging to logs/rpa_project.log
+[2024-05-13 20:03:40][INFO]: Logger setup complete
+[2024-05-13 20:03:40][INFO]: Instantiating NewsBrowser
+[2024-05-13 20:03:40][INFO]: NewsBrowser initialized
+[2024-05-13 20:03:40][INFO]: Instantiating NewsBrowser
+[2024-05-13 20:03:45][INFO]: entering search function
+[2024-05-13 20:03:45][ERROR]: Failed to locate element, reason: Message: 
+Stacktrace:
+#0 0x56126aac8813 <unknown>
+#1 0x56126a7ad21b <unknown>
+#2 0x56126a7f88b6 <unknown>
+#3 0x56126a7f8b11 <unknown>
+#4 0x56126a83d834 <unknown>
+#5 0x56126a81c4fd <unknown>
+#6 0x56126a83b348 <unknown>
+#7 0x56126a81c273 <unknown>
+#8 0x56126a7eb42c <unknown>
+#9 0x56126a7ec1fe <unknown>
+#10 0x56126aa93d6e <unknown>
+#11 0x56126aa97146 <unknown>
+#12 0x56126aa96c2f <unknown>
+#13 0x56126aa97625 <unknown>
+#14 0x56126aa8446b <unknown>
+#15 0x56126aa97a11 <unknown>
+#16 0x56126aa700e3 <unknown>
+#17 0x56126aab8335 <unknown>
+#18 0x56126aab84e0 <unknown>
+#19 0x56126aac7b16 <unknown>
+#20 0x7ff5379ba947 start_thread
+#21 0x7ff537a40970 __clone3
+
+Traceback (most recent call last):
+
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/__main__.py", line 4, in <module>
+    main()
+    └ <function main at 0x7f6d861acae0>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/cli.py", line 78, in main
+    returncode = dispatcher.process_args(args)
+                 │          │            └ ['run', 'src/main.py']
+                 │          └ <function _ArgDispatcher.process_args at 0x7f6d8565dee0>
+                 └ <robocorp.tasks._argdispatch._ArgDispatcher object at 0x7f6d85897490>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_argdispatch.py", line 227, in process_args
+    return self._dispatch(parsed)
+           │    │         └ Namespace(command='run', path='src/main.py', glob=None, task_name=None, output_dir='', max_log_files=5, max_log_file_size='1M...
+           │    └ <function _ArgDispatcher._dispatch at 0x7f6d8565d940>
+           └ <robocorp.tasks._argdispatch._ArgDispatcher object at 0x7f6d85897490>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_argdispatch.py", line 22, in _dispatch
+    return method(**dct)
+           │        └ {'path': 'src/main.py', 'glob': None, 'task_name': None, 'output_dir': '', 'max_log_files': 5, 'max_log_file_size': '1MB', 'c...
+           └ <function run at 0x7f6d8565e020>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_commands.py", line 440, in run
+    result = task.run(*args, **kwargs)
+             │    │    │       └ {}
+             │    │    └ []
+             │    └ <function Task.run at 0x7f6d854e9a80>
+             └ Task(minimal_task, status: Status.NOT_RUN)
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_task.py", line 89, in run
+    return self.method(*args, **kwargs)
+           │    │       │       └ {}
+           │    │       └ ()
+           │    └ <function minimal_task at 0x7f6d5cf1b1a0>
+           └ Task(minimal_task, status: Status.NOT_RUN)
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 68, in minimal_task
+    project(settings.SEARCH_QUERY, settings.MONTHS)
+    │       │        │             │        └ 2
+    │       │        │             └ Settings(ENV='cloud', PROJECT_TITLE='rpa_project', LOGGING_FILE='logs/rpa_project.log', STARTUP_FAIL_LOG_FILE_PATH='logs/star...
+    │       │        └ 'dog'
+    │       └ Settings(ENV='cloud', PROJECT_TITLE='rpa_project', LOGGING_FILE='logs/rpa_project.log', STARTUP_FAIL_LOG_FILE_PATH='logs/star...
+    └ <function project at 0x7f6d841228e0>
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 48, in project
+    output_data = news_browser.search_articles(
+                  │            └ <function NewsBrowser.search_articles at 0x7f6d5cf1b060>
+                  └ <helpers.browsing.NewsBrowser object at 0x7f6d5d769010>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 214, in search_articles
+    interact_with_element(
+    └ <function interact_with_element at 0x7f6d5d384e00>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 151, in interact_with_element
+    close_button: WebElement = wait_and_retrieve_item(
+                               └ <function wait_and_retrieve_item at 0x7f6d7dbfb100>
+
+> File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 104, in wait_and_retrieve_item
+    ] = WebDriverWait(driver, timeout).until(
+        │             │       └ 0.1
+        │             └ <selenium.webdriver.chrome.webdriver.WebDriver (session="073d40576a901b2d74a67f6b4a9d4ceb")>
+        └ <class 'selenium.webdriver.support.wait.WebDriverWait'>
+
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 101, in until
+    raise TimeoutException(message, screen, stacktrace)
+          │                │        │       └ ['#0 0x56126aac8813 <unknown>', '#1 0x56126a7ad21b <unknown>', '#2 0x56126a7f88b6 <unknown>', '#3 0x56126a7f8b11 <unknown>', ...
+          │                │        └ None
+          │                └ ''
+          └ <class 'selenium.common.exceptions.TimeoutException'>
+
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+#0 0x56126aac8813 <unknown>
+#1 0x56126a7ad21b <unknown>
+#2 0x56126a7f88b6 <unknown>
+#3 0x56126a7f8b11 <unknown>
+#4 0x56126a83d834 <unknown>
+#5 0x56126a81c4fd <unknown>
+#6 0x56126a83b348 <unknown>
+#7 0x56126a81c273 <unknown>
+#8 0x56126a7eb42c <unknown>
+#9 0x56126a7ec1fe <unknown>
+#10 0x56126aa93d6e <unknown>
+#11 0x56126aa97146 <unknown>
+#12 0x56126aa96c2f <unknown>
+#13 0x56126aa97625 <unknown>
+#14 0x56126aa8446b <unknown>
+#15 0x56126aa97a11 <unknown>
+#16 0x56126aa700e3 <unknown>
+#17 0x56126aab8335 <unknown>
+#18 0x56126aab84e0 <unknown>
+#19 0x56126aac7b16 <unknown>
+#20 0x7ff5379ba947 start_thread
+#21 0x7ff537a40970 __clone3
+
+[2024-05-13 20:03:45][ERROR]: Failed to close popup, reason: Failed to locate element - see above for error info
+Traceback (most recent call last):
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 104, in wait_and_retrieve_item
+    ] = WebDriverWait(driver, timeout).until(
+        │             │       └ 0.1
+        │             └ <selenium.webdriver.chrome.webdriver.WebDriver (session="073d40576a901b2d74a67f6b4a9d4ceb")>
+        └ <class 'selenium.webdriver.support.wait.WebDriverWait'>
+
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 101, in until
+    raise TimeoutException(message, screen, stacktrace)
+          │                │        │       └ ['#0 0x56126aac8813 <unknown>', '#1 0x56126a7ad21b <unknown>', '#2 0x56126a7f88b6 <unknown>', '#3 0x56126a7f8b11 <unknown>', ...
+          │                │        └ None
+          │                └ ''
+          └ <class 'selenium.common.exceptions.TimeoutException'>
+
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+#0 0x56126aac8813 <unknown>
+#1 0x56126a7ad21b <unknown>
+#2 0x56126a7f88b6 <unknown>
+#3 0x56126a7f8b11 <unknown>
+#4 0x56126a83d834 <unknown>
+#5 0x56126a81c4fd <unknown>
+#6 0x56126a83b348 <unknown>
+#7 0x56126a81c273 <unknown>
+#8 0x56126a7eb42c <unknown>
+#9 0x56126a7ec1fe <unknown>
+#10 0x56126aa93d6e <unknown>
+#11 0x56126aa97146 <unknown>
+#12 0x56126aa96c2f <unknown>
+#13 0x56126aa97625 <unknown>
+#14 0x56126aa8446b <unknown>
+#15 0x56126aa97a11 <unknown>
+#16 0x56126aa700e3 <unknown>
+#17 0x56126aab8335 <unknown>
+#18 0x56126aab84e0 <unknown>
+#19 0x56126aac7b16 <unknown>
+#20 0x7ff5379ba947 start_thread
+#21 0x7ff537a40970 __clone3
+
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/__main__.py", line 4, in <module>
+    main()
+    └ <function main at 0x7f6d861acae0>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/cli.py", line 78, in main
+    returncode = dispatcher.process_args(args)
+                 │          │            └ ['run', 'src/main.py']
+                 │          └ <function _ArgDispatcher.process_args at 0x7f6d8565dee0>
+                 └ <robocorp.tasks._argdispatch._ArgDispatcher object at 0x7f6d85897490>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_argdispatch.py", line 227, in process_args
+    return self._dispatch(parsed)
+           │    │         └ Namespace(command='run', path='src/main.py', glob=None, task_name=None, output_dir='', max_log_files=5, max_log_file_size='1M...
+           │    └ <function _ArgDispatcher._dispatch at 0x7f6d8565d940>
+           └ <robocorp.tasks._argdispatch._ArgDispatcher object at 0x7f6d85897490>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_argdispatch.py", line 22, in _dispatch
+    return method(**dct)
+           │        └ {'path': 'src/main.py', 'glob': None, 'task_name': None, 'output_dir': '', 'max_log_files': 5, 'max_log_file_size': '1MB', 'c...
+           └ <function run at 0x7f6d8565e020>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_commands.py", line 440, in run
+    result = task.run(*args, **kwargs)
+             │    │    │       └ {}
+             │    │    └ []
+             │    └ <function Task.run at 0x7f6d854e9a80>
+             └ Task(minimal_task, status: Status.NOT_RUN)
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_task.py", line 89, in run
+    return self.method(*args, **kwargs)
+           │    │       │       └ {}
+           │    │       └ ()
+           │    └ <function minimal_task at 0x7f6d5cf1b1a0>
+           └ Task(minimal_task, status: Status.NOT_RUN)
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 68, in minimal_task
+    project(settings.SEARCH_QUERY, settings.MONTHS)
+    │       │        │             │        └ 2
+    │       │        │             └ Settings(ENV='cloud', PROJECT_TITLE='rpa_project', LOGGING_FILE='logs/rpa_project.log', STARTUP_FAIL_LOG_FILE_PATH='logs/star...
+    │       │        └ 'dog'
+    │       └ Settings(ENV='cloud', PROJECT_TITLE='rpa_project', LOGGING_FILE='logs/rpa_project.log', STARTUP_FAIL_LOG_FILE_PATH='logs/star...
+    └ <function project at 0x7f6d841228e0>
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 48, in project
+    output_data = news_browser.search_articles(
+                  │            └ <function NewsBrowser.search_articles at 0x7f6d5cf1b060>
+                  └ <helpers.browsing.NewsBrowser object at 0x7f6d5d769010>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 214, in search_articles
+    interact_with_element(
+    └ <function interact_with_element at 0x7f6d5d384e00>
+
+> File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 151, in interact_with_element
+    close_button: WebElement = wait_and_retrieve_item(
+                               └ <function wait_and_retrieve_item at 0x7f6d7dbfb100>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 112, in wait_and_retrieve_item
+    raise Exception(
+
+Exception: Failed to locate element - see above for error info
+[2024-05-13 20:03:45][ERROR]: Failed to search for articles, reason: Failed to close popup - see above for error info
+Traceback (most recent call last):
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 104, in wait_and_retrieve_item
+    ] = WebDriverWait(driver, timeout).until(
+        │             │       └ 0.1
+        │             └ <selenium.webdriver.chrome.webdriver.WebDriver (session="073d40576a901b2d74a67f6b4a9d4ceb")>
+        └ <class 'selenium.webdriver.support.wait.WebDriverWait'>
+
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 101, in until
+    raise TimeoutException(message, screen, stacktrace)
+          │                │        │       └ ['#0 0x56126aac8813 <unknown>', '#1 0x56126a7ad21b <unknown>', '#2 0x56126a7f88b6 <unknown>', '#3 0x56126a7f8b11 <unknown>', ...
+          │                │        └ None
+          │                └ ''
+          └ <class 'selenium.common.exceptions.TimeoutException'>
+
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+#0 0x56126aac8813 <unknown>
+#1 0x56126a7ad21b <unknown>
+#2 0x56126a7f88b6 <unknown>
+#3 0x56126a7f8b11 <unknown>
+#4 0x56126a83d834 <unknown>
+#5 0x56126a81c4fd <unknown>
+#6 0x56126a83b348 <unknown>
+#7 0x56126a81c273 <unknown>
+#8 0x56126a7eb42c <unknown>
+#9 0x56126a7ec1fe <unknown>
+#10 0x56126aa93d6e <unknown>
+#11 0x56126aa97146 <unknown>
+#12 0x56126aa96c2f <unknown>
+#13 0x56126aa97625 <unknown>
+#14 0x56126aa8446b <unknown>
+#15 0x56126aa97a11 <unknown>
+#16 0x56126aa700e3 <unknown>
+#17 0x56126aab8335 <unknown>
+#18 0x56126aab84e0 <unknown>
+#19 0x56126aac7b16 <unknown>
+#20 0x7ff5379ba947 start_thread
+#21 0x7ff537a40970 __clone3
+
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 151, in interact_with_element
+    close_button: WebElement = wait_and_retrieve_item(
+                               └ <function wait_and_retrieve_item at 0x7f6d7dbfb100>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 112, in wait_and_retrieve_item
+    raise Exception(
+
+Exception: Failed to locate element - see above for error info
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/__main__.py", line 4, in <module>
+    main()
+    └ <function main at 0x7f6d861acae0>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/cli.py", line 78, in main
+    returncode = dispatcher.process_args(args)
+                 │          │            └ ['run', 'src/main.py']
+                 │          └ <function _ArgDispatcher.process_args at 0x7f6d8565dee0>
+                 └ <robocorp.tasks._argdispatch._ArgDispatcher object at 0x7f6d85897490>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_argdispatch.py", line 227, in process_args
+    return self._dispatch(parsed)
+           │    │         └ Namespace(command='run', path='src/main.py', glob=None, task_name=None, output_dir='', max_log_files=5, max_log_file_size='1M...
+           │    └ <function _ArgDispatcher._dispatch at 0x7f6d8565d940>
+           └ <robocorp.tasks._argdispatch._ArgDispatcher object at 0x7f6d85897490>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_argdispatch.py", line 22, in _dispatch
+    return method(**dct)
+           │        └ {'path': 'src/main.py', 'glob': None, 'task_name': None, 'output_dir': '', 'max_log_files': 5, 'max_log_file_size': '1MB', 'c...
+           └ <function run at 0x7f6d8565e020>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_commands.py", line 440, in run
+    result = task.run(*args, **kwargs)
+             │    │    │       └ {}
+             │    │    └ []
+             │    └ <function Task.run at 0x7f6d854e9a80>
+             └ Task(minimal_task, status: Status.NOT_RUN)
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_task.py", line 89, in run
+    return self.method(*args, **kwargs)
+           │    │       │       └ {}
+           │    │       └ ()
+           │    └ <function minimal_task at 0x7f6d5cf1b1a0>
+           └ Task(minimal_task, status: Status.NOT_RUN)
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 68, in minimal_task
+    project(settings.SEARCH_QUERY, settings.MONTHS)
+    │       │        │             │        └ 2
+    │       │        │             └ Settings(ENV='cloud', PROJECT_TITLE='rpa_project', LOGGING_FILE='logs/rpa_project.log', STARTUP_FAIL_LOG_FILE_PATH='logs/star...
+    │       │        └ 'dog'
+    │       └ Settings(ENV='cloud', PROJECT_TITLE='rpa_project', LOGGING_FILE='logs/rpa_project.log', STARTUP_FAIL_LOG_FILE_PATH='logs/star...
+    └ <function project at 0x7f6d841228e0>
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 48, in project
+    output_data = news_browser.search_articles(
+                  │            └ <function NewsBrowser.search_articles at 0x7f6d5cf1b060>
+                  └ <helpers.browsing.NewsBrowser object at 0x7f6d5d769010>
+
+> File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 214, in search_articles
+    interact_with_element(
+    └ <function interact_with_element at 0x7f6d5d384e00>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 165, in interact_with_element
+    raise Exception(
+
+Exception: Failed to close popup - see above for error info
+[2024-05-13 20:03:45][ERROR]: Project failed to start, reason: Failed to search for articles - see above for error info
+Traceback (most recent call last):
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 104, in wait_and_retrieve_item
+    ] = WebDriverWait(driver, timeout).until(
+        │             │       └ 0.1
+        │             └ <selenium.webdriver.chrome.webdriver.WebDriver (session="073d40576a901b2d74a67f6b4a9d4ceb")>
+        └ <class 'selenium.webdriver.support.wait.WebDriverWait'>
+
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 101, in until
+    raise TimeoutException(message, screen, stacktrace)
+          │                │        │       └ ['#0 0x56126aac8813 <unknown>', '#1 0x56126a7ad21b <unknown>', '#2 0x56126a7f88b6 <unknown>', '#3 0x56126a7f8b11 <unknown>', ...
+          │                │        └ None
+          │                └ ''
+          └ <class 'selenium.common.exceptions.TimeoutException'>
+
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+#0 0x56126aac8813 <unknown>
+#1 0x56126a7ad21b <unknown>
+#2 0x56126a7f88b6 <unknown>
+#3 0x56126a7f8b11 <unknown>
+#4 0x56126a83d834 <unknown>
+#5 0x56126a81c4fd <unknown>
+#6 0x56126a83b348 <unknown>
+#7 0x56126a81c273 <unknown>
+#8 0x56126a7eb42c <unknown>
+#9 0x56126a7ec1fe <unknown>
+#10 0x56126aa93d6e <unknown>
+#11 0x56126aa97146 <unknown>
+#12 0x56126aa96c2f <unknown>
+#13 0x56126aa97625 <unknown>
+#14 0x56126aa8446b <unknown>
+#15 0x56126aa97a11 <unknown>
+#16 0x56126aa700e3 <unknown>
+#17 0x56126aab8335 <unknown>
+#18 0x56126aab84e0 <unknown>
+#19 0x56126aac7b16 <unknown>
+#20 0x7ff5379ba947 start_thread
+#21 0x7ff537a40970 __clone3
+
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 151, in interact_with_element
+    close_button: WebElement = wait_and_retrieve_item(
+                               └ <function wait_and_retrieve_item at 0x7f6d7dbfb100>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 112, in wait_and_retrieve_item
+    raise Exception(
+
+Exception: Failed to locate element - see above for error info
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 214, in search_articles
+    interact_with_element(
+    └ <function interact_with_element at 0x7f6d5d384e00>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 165, in interact_with_element
+    raise Exception(
+
+Exception: Failed to close popup - see above for error info
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/__main__.py", line 4, in <module>
+    main()
+    └ <function main at 0x7f6d861acae0>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/cli.py", line 78, in main
+    returncode = dispatcher.process_args(args)
+                 │          │            └ ['run', 'src/main.py']
+                 │          └ <function _ArgDispatcher.process_args at 0x7f6d8565dee0>
+                 └ <robocorp.tasks._argdispatch._ArgDispatcher object at 0x7f6d85897490>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_argdispatch.py", line 227, in process_args
+    return self._dispatch(parsed)
+           │    │         └ Namespace(command='run', path='src/main.py', glob=None, task_name=None, output_dir='', max_log_files=5, max_log_file_size='1M...
+           │    └ <function _ArgDispatcher._dispatch at 0x7f6d8565d940>
+           └ <robocorp.tasks._argdispatch._ArgDispatcher object at 0x7f6d85897490>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_argdispatch.py", line 22, in _dispatch
+    return method(**dct)
+           │        └ {'path': 'src/main.py', 'glob': None, 'task_name': None, 'output_dir': '', 'max_log_files': 5, 'max_log_file_size': '1MB', 'c...
+           └ <function run at 0x7f6d8565e020>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_commands.py", line 440, in run
+    result = task.run(*args, **kwargs)
+             │    │    │       └ {}
+             │    │    └ []
+             │    └ <function Task.run at 0x7f6d854e9a80>
+             └ Task(minimal_task, status: Status.NOT_RUN)
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/robocorp/tasks/_task.py", line 89, in run
+    return self.method(*args, **kwargs)
+           │    │       │       └ {}
+           │    │       └ ()
+           │    └ <function minimal_task at 0x7f6d5cf1b1a0>
+           └ Task(minimal_task, status: Status.NOT_RUN)
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 68, in minimal_task
+    project(settings.SEARCH_QUERY, settings.MONTHS)
+    │       │        │             │        └ 2
+    │       │        │             └ Settings(ENV='cloud', PROJECT_TITLE='rpa_project', LOGGING_FILE='logs/rpa_project.log', STARTUP_FAIL_LOG_FILE_PATH='logs/star...
+    │       │        └ 'dog'
+    │       └ Settings(ENV='cloud', PROJECT_TITLE='rpa_project', LOGGING_FILE='logs/rpa_project.log', STARTUP_FAIL_LOG_FILE_PATH='logs/star...
+    └ <function project at 0x7f6d841228e0>
+
+> File "/home/nic/Documents/rpa_challenge/src/main.py", line 48, in project
+    output_data = news_browser.search_articles(
+                  │            └ <function NewsBrowser.search_articles at 0x7f6d5cf1b060>
+                  └ <helpers.browsing.NewsBrowser object at 0x7f6d5d769010>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 440, in search_articles
+    raise Exception(
+
+Exception: Failed to search for articles - see above for error info
+[2024-05-13 20:04:48][INFO]: Setting up rpa_project
+[2024-05-13 20:04:48][INFO]: Environment set to cloud
+[2024-05-13 20:04:48][INFO]: Logging level set to INFO
+[2024-05-13 20:04:48][INFO]: Logging to logs/rpa_project.log
+[2024-05-13 20:04:48][INFO]: Logger setup complete
+[2024-05-13 20:04:48][INFO]: Instantiating NewsBrowser
+[2024-05-13 20:04:48][INFO]: NewsBrowser initialized
+[2024-05-13 20:04:48][INFO]: Instantiating NewsBrowser
+[2024-05-13 20:04:58][INFO]: entering search function
+[2024-05-13 20:04:58][ERROR]: Failed to locate element, reason: Message: 
+Stacktrace:
+#0 0x5643b71a2813 <unknown>
+#1 0x5643b6e8721b <unknown>
+#2 0x5643b6ed28b6 <unknown>
+#3 0x5643b6ed2b11 <unknown>
+#4 0x5643b6f17834 <unknown>
+#5 0x5643b6ef64fd <unknown>
+#6 0x5643b6f15348 <unknown>
+#7 0x5643b6ef6273 <unknown>
+#8 0x5643b6ec542c <unknown>
+#9 0x5643b6ec61fe <unknown>
+#10 0x5643b716dd6e <unknown>
+#11 0x5643b7171146 <unknown>
+#12 0x5643b7170c2f <unknown>
+#13 0x5643b7171625 <unknown>
+#14 0x5643b715e46b <unknown>
+#15 0x5643b7171a11 <unknown>
+#16 0x5643b714a0e3 <unknown>
+#17 0x5643b7192335 <unknown>
+#18 0x5643b71924e0 <unknown>
+#19 0x5643b71a1b16 <unknown>
+#20 0x7f9f56c4b947 start_thread
+#21 0x7f9f56cd1970 __clone3
+
+Traceback (most recent call last):
+
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+           │         └ <code object <module> at 0x7f50d07b3470, file "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundl...
+           └ <function _run_code at 0x7f50d05b6200>
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': <_frozen_importlib_external.SourceFileLoader objec...
+         └ <code object <module> at 0x7f50d07b3470, file "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundl...
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/__main__.py", line 39, in <module>
+    cli.main()
+    │   └ <function main at 0x7f50cf112ac0>
+    └ <module 'debugpy.server.cli' from '/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debu...
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 430, in main
+    run()
+    └ <function run_file at 0x7f50cf112840>
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 284, in run_file
+    runpy.run_path(target, run_name="__main__")
+    │     │        └ '/home/nic/Documents/rpa_challenge/src/main.py'
+    │     └ <function run_path at 0x7f50cf69fc40>
+    └ <module '_pydevd_bundle.pydevd_runpy' from '/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/...
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 321, in run_path
+    return _run_module_code(code, init_globals, run_name,
+           │                │     │             └ '__main__'
+           │                │     └ None
+           │                └ <code object <module> at 0x7f50cf174710, file "/home/nic/Documents/rpa_challenge/src/main.py", line 1>
+           └ <function _run_module_code at 0x7f50cf69f880>
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 135, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+    │         │     │            └ None
+    │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': '/home/nic/Doc...
+    │         └ <code object <module> at 0x7f50cf174710, file "/home/nic/Documents/rpa_challenge/src/main.py", line 1>
+    └ <function _run_code at 0x7f50cf69f420>
+
+  File "/home/nic/.vscode-server/extensions/ms-python.debugpy-2024.6.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 124, in _run_code
+    exec(code, run_globals)
+         │     └ {'__name__': '__main__', '__doc__': None, '__package__': '', '__loader__': None, '__spec__': None, '__file__': '/home/nic/Doc...
+         └ <code object <module> at 0x7f50cf174710, file "/home/nic/Documents/rpa_challenge/src/main.py", line 1>
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 73, in <module>
+    project("dog")
+    └ <function project at 0x7f50cf00f240>
+
+  File "/home/nic/Documents/rpa_challenge/src/main.py", line 48, in project
+    output_data = news_browser.search_articles(
+                  │            └ <function NewsBrowser.search_articles at 0x7f5095469620>
+                  └ <helpers.browsing.NewsBrowser object at 0x7f5095c397d0>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/browsing.py", line 214, in search_articles
+    interact_with_element(
+    └ <function interact_with_element at 0x7f50954691c0>
+
+  File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 151, in interact_with_element
+    close_button: WebElement = wait_and_retrieve_item(
+                               └ <function wait_and_retrieve_item at 0x7f50b5e30360>
+
+> File "/home/nic/Documents/rpa_challenge/src/helpers/util.py", line 104, in wait_and_retrieve_item
+    ] = WebDriverWait(driver, timeout).until(
+        │             │       └ 0.1
+        │             └ <selenium.webdriver.chrome.webdriver.WebDriver (session="1a6e547a036839dc9a77fc4184346f16")>
+        └ <class 'selenium.webdriver.support.wait.WebDriverWait'>
+
+  File "/home/nic/.robocorp/holotree/c622fb6_b1f3c24_d4ec2478/lib/python3.11/site-packages/selenium/webdriver/support/wait.py", line 101, in until
+    raise TimeoutException(message, screen, stacktrace)
+          │                │        │       └ ['#0 0x5643b71a2813 <unknown>', '#1 0x5643b6e8721b <unknown>', '#2 0x5643b6ed28b6 <unknown>', '#3 0x5643b6ed2b11 <unknown>', ...
+          │                │        └ None
+          │                └ ''
+          └ <class 'selenium.common.exceptions.TimeoutException'>
+
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+#0 0x5643b71a2813 <unknown>
+#1 0x5643b6e8721b <unknown>
+#2 0x5643b6ed28b6 <unknown>
+#3 0x5643b6ed2b11 <unknown>
+#4 0x5643b6f17834 <unknown>
+#5 0x5643b6ef64fd <unknown>
+#6 0x5643b6f15348 <unknown>
+#7 0x5643b6ef6273 <unknown>
+#8 0x5643b6ec542c <unknown>
+#9 0x5643b6ec61fe <unknown>
+#10 0x5643b716dd6e <unknown>
+#11 0x5643b7171146 <unknown>
+#12 0x5643b7170c2f <unknown>
+#13 0x5643b7171625 <unknown>
+#14 0x5643b715e46b <unknown>
+#15 0x5643b7171a11 <unknown>
+#16 0x5643b714a0e3 <unknown>
+#17 0x5643b7192335 <unknown>
+#18 0x5643b71924e0 <unknown>
+#19 0x5643b71a1b16 <unknown>
+#20 0x7f9f56c4b947 start_thread
+#21 0x7f9f56cd1970 __clone3
+
+[2024-05-13 20:08:01][INFO]: Setting up rpa_project
+[2024-05-13 20:08:01][INFO]: Environment set to cloud
+[2024-05-13 20:08:01][INFO]: Logging level set to INFO
+[2024-05-13 20:08:01][INFO]: Logging to logs/rpa_project.log
+[2024-05-13 20:08:01][INFO]: Logger setup complete
+[2024-05-13 20:08:01][INFO]: Instantiating NewsBrowser
+[2024-05-13 20:08:01][INFO]: NewsBrowser initialized
+[2024-05-13 20:08:01][INFO]: Instantiating NewsBrowser
+[2024-05-13 20:08:06][INFO]: entering search function
+[2024-05-13 20:08:13][INFO]: going through cards
+[2024-05-13 20:08:14][INFO]: on card 1
+[2024-05-13 20:08:18][INFO]: on card 2
+[2024-05-13 20:08:22][INFO]: on card 3
+[2024-05-13 20:08:27][INFO]: on card 4
+[2024-05-13 20:08:31][INFO]: on card 5
+[2024-05-13 20:08:35][INFO]: on card 6
