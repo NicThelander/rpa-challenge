@@ -171,6 +171,8 @@ def interact_with_element(
         element_interaction(*params)
         time.sleep(sleep_duration)
     except Exception as e:
+        with open('output/test.html', 'w') as f:
+            f.write(driver.page_source)
         logger.exception(f"Failed to interact with element, reason: {e}")
         raise Exception(
             "Failed to interact with element - see above for error info"
