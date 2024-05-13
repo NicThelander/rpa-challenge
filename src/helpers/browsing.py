@@ -275,21 +275,24 @@ class NewsBrowser(object):
                         identifier=".image.native-image.prime-img-class"
                     ).get_attribute('src')
                     article_details["image_url"] = image_url
-                    self.browser.execute_javascript(f"window.open('{image_url}');")
+                    self.browser.execute_javascript(
+                        f"window.open('{image_url}');"
+                        )
                     
                     self.browser.driver.switch_to.window(
                         self.browser.driver.window_handles[-1])
                     
                     # get the image name after the url redirect (need to load
                     # the page to get the image name)
-                    try:
-                        WebDriverWait(self.browser.driver, 10).until(
-                            lambda driver: driver.current_url != 'about:blank'
-                        )
-                    except:
-                        self.logger.info(
-                            "Could not retrieve image name for this card"
-                            )
+                    
+                    # try:
+                    #     WebDriverWait(self.browser.driver, 10).until(
+                    #         lambda driver: driver.current_url != 'about:blank'
+                    #     )
+                    # except:
+                    #     self.logger.info(
+                    #         "Could not retrieve image name for this card"
+                    #         )
                     if self.browser.driver.current_url == 'about:blank':
                         img_name = "failed to retrieve image name"
                     else:

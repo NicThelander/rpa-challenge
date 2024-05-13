@@ -64,7 +64,7 @@ def project(search_term, months=1):
         raise
 
 @task
-def minimal_task():
+def minimal_task(search_query: str, months: int):
     project(settings.SEARCH_QUERY, settings.MONTHS)
 # def minimal_task(search_term: str, months: int):
 #     project(search_term, months)
