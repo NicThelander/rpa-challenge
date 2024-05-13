@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     LOGGING_FILE: str = "logs/rpa_project.log"
     STARTUP_FAIL_LOG_FILE_PATH: str = "logs/startup_failure.log"
     LOGGING_LEVEL: str = "INFO"
-    SCREENSHOT_FOLDER_PATH: str = "output"
+    SCREENSHOT_FOLDER_PATH: str = "screenshots"
     DEFAULT_SLEEP: float = 0.05
     DEFAULT_TIMEOUT: int = 20
     OUTPUT_PATH: str = "output"

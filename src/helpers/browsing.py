@@ -160,15 +160,8 @@ class NewsBrowser(object):
         except NoSuchElementException:
             self.logger.info("No more cards to load.")
         except Exception as e:
-            self.screenshot("load_more_cards_error")
-            # TODO: remove the print once certain the adds getting blocked
-            page_source = self.browser.get_source()
-            print(page_source)
-            with open('test.html', 'w') as f:
-                f.write(page_source)
             self.logger.exception(
                 f"Failed to load more cards, reason: {e}")
-
             raise Exception(
                 "Failed to load more cards - see above for error info")
 
@@ -409,7 +402,7 @@ class NewsBrowser(object):
                 except Exception as e:
                     self.logger.exception(
                         f"Failed to process card {index}, reason: {e}")
-                    self.info("continuing to process the rest of the cards...")
+                    self.logger.info("continuing to process the rest of the cards...")
                     
 
                 if index == cards_length:
