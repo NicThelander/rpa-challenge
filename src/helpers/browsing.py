@@ -402,6 +402,10 @@ class NewsBrowser(object):
                     
 
                 if index == cards_length:
+                    # make sure we're on the correct window before attempting
+                    # to interact with cards
+                    self.browser.driver.switch_to.window(
+                        self.browser.driver.window_handles[0])
                     new_card_request_count = 0
                     while True:
                         cards: WebElement = wait_and_retrieve_item(
