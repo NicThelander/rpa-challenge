@@ -69,6 +69,3 @@ def minimal_task():
     search_query = item.payload.get("search_query")
     months = item.payload.get("months")
     project(search_query, months)
-
-# if __name__ == '__main__':
-#     project("dog")
