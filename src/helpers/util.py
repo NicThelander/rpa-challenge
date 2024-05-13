@@ -150,7 +150,9 @@ def interact_with_element(
     try:
         close_button = WebDriverWait(driver, 0.1).until(
             EC.presence_of_element_located(
-                (By.CLASS_NAME, "dillcity-CloseButton"))
+                (By.XPATH, '//button[@title="Close"]')
+                # (By.CLASS_NAME, "dillcity-CloseButton")
+                )
         )
         
         close_button.click()

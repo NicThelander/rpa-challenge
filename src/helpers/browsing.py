@@ -162,10 +162,13 @@ class NewsBrowser(object):
         except Exception as e:
             self.screenshot("load_more_cards_error")
             # TODO: remove the print once certain the adds getting blocked
-            page_source = self.browser.get_source
+            page_source = self.browser.get_source()
             print(page_source)
+            with open('test.html', 'w') as f:
+                f.write(page_source)
             self.logger.exception(
                 f"Failed to load more cards, reason: {e}")
+
             raise Exception(
                 "Failed to load more cards - see above for error info")
 
