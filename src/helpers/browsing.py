@@ -291,7 +291,7 @@ class NewsBrowser(object):
                         
                         self.RPA_HTTP.download(
                             image_url,
-                            f"{settings.OUTPUT_PATH}/images/{img_name}"
+                            f"{settings.OUTPUT_PATH}/{img_name}"
                         )
 
 
