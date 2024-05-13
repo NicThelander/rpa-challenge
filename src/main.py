@@ -63,11 +63,11 @@ def project(search_term, months=1):
         logger.exception(f"Project failed to start, reason: {e}")
         raise
 
-# @task
-# def minimal_task():
-#     project(settings.SEARCH_QUERY, settings.MONTHS)
+@task
+def minimal_task():
+    project(settings.SEARCH_QUERY, settings.MONTHS)
 # def minimal_task(search_term: str, months: int):
 #     project(search_term, months)
 
-if __name__ == '__main__':
-    project("dog")
+# if __name__ == '__main__':
+#     project("dog")
