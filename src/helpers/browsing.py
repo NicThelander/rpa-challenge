@@ -169,7 +169,6 @@ class NewsBrowser(object):
 
     def search_articles(
             self,
-            output_sub_dir: str,
             query: str,
             months: int = 1
         ):
@@ -178,11 +177,9 @@ class NewsBrowser(object):
         
         #### Parameters
         ------
-        1. output_sub_dir : str
-            - sub directory to save the output
-        2. query : str
+        1. query : str
         - search term to search for
-        3. months : int, (default=1)
+        2. months : int, (default=1)
         - number of months to search back for articles
         
         #### Returns
@@ -294,7 +291,7 @@ class NewsBrowser(object):
                         
                         self.RPA_HTTP.download(
                             image_url,
-                            f"{settings.OUTPUT_PATH}/{output_sub_dir}/{img_name}"
+                            f"{settings.OUTPUT_PATH}/images/{img_name}"
                         )
 
 

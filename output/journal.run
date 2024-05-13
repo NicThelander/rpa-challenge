@@ -470,3 +470,32 @@
 {"when":1715631618,"controller":"rcc.robocorpcode","event":"robot exit","detail":"From rcc \"v17.28.4\" (controller: \"RobocorpCode\") point of view, \"actual main robot run\" was SUCCESS.","comment":"rcc point of view"}
 {"when":1715631618,"controller":"rcc.robocorpcode","event":"processes","detail":"final","comment":"count: 0"}
 {"when":1715631619,"controller":"rcc.robocorpcode","event":"stop","detail":"robot","comment":"done"}
+{"when":1715632407,"controller":"rcc.robocorpcode","event":"start task","detail":"name=Run Task from=/home/nic/Documents/rpa_challenge/robot.yaml","comment":"at task environment setup"}
+{"when":1715632407,"controller":"rcc.robocorpcode","event":"environment","detail":"build","comment":"Progress: 00/15 v17.28.4 0.040s Context: \"\" \u003cnic@nicdesktop\u003e [linux_amd64/exec: \"lsb_release\": executable file not found in $PATH]."}
+{"when":1715632407,"controller":"rcc.robocorpcode","event":"environment","detail":"build","comment":"Progress: 01/15 v17.28.4 0.012s Fresh [private mode] holotree environment e70d8e44-a447-c5ef-290a-729cb3962351. (parent/pid: 81377/81378)"}
+{"when":1715632407,"controller":"rcc.robocorpcode","event":"environment","detail":"build","comment":"Progress: 02/15 v17.28.4 0.006s Holotree blueprint is \"bec6b8a0aea867af\" [linux_amd64 with 11 workers on 12 CPUs from \"conda.yaml\"]."}
+{"when":1715632407,"controller":"rcc.robocorpcode","event":"environment","detail":"build","comment":"Progress: 14/15 v17.28.4 0.203s Restore space from library [with 11 workers on 12 CPUs; with compression: true]."}
+{"when":1715632408,"controller":"rcc.robocorpcode","event":"environment","detail":"build","comment":"Progress: 15/15 v17.28.4 0.507s Fresh holotree done [with 11 workers on 12 CPUs]."}
+{"when":1715632408,"controller":"rcc.robocorpcode","event":"start","detail":"robot","comment":"started"}
+{"when":1715632408,"controller":"rcc.robocorpcode","event":"run","detail":"robot","comment":"task run"}
+{"when":1715632408,"controller":"rcc.robocorpcode","event":"processes","detail":"updated","comment":"count from 0 to 1 ... map[81403:python3.11]"}
+{"when":1715632413,"controller":"rcc.robocorpcode","event":"processes","detail":"updated","comment":"count from 1 to 2 ... map[81403:python3.11 81483:sh]"}
+{"when":1715632413,"controller":"rcc.robocorpcode","event":"processes","detail":"updated","comment":"count from 2 to 2 ... map[81403:python3.11 81526:chromedriver]"}
+{"when":1715632414,"controller":"rcc.robocorpcode","event":"processes","detail":"updated","comment":"count from 2 to 9 ... map[81403:python3.11 81526:chromedriver 81533:chromium-browse 81537:chromium-browse 81538:chromium-browse 81555:chromium-browse 81560:chromium-browse 81580:chromium-browse 81593:chromium-browse]"}
+{"when":1715632416,"controller":"rcc.robocorpcode","event":"processes","detail":"updated","comment":"count from 9 to 8 ... map[81403:python3.11 81526:chromedriver 81533:chromium-browse 81537:chromium-browse 81538:chromium-browse 81555:chromium-browse 81580:chromium-browse 81593:chromium-browse]"}
+{"when":1715632560,"controller":"rcc.robocorpcode","event":"start task","detail":"name=Run Task from=/home/nic/Documents/rpa_challenge/robot.yaml","comment":"at task environment setup"}
+{"when":1715632560,"controller":"rcc.robocorpcode","event":"environment","detail":"build","comment":"Progress: 00/15 v17.28.4 0.040s Context: \"\" \u003cnic@nicdesktop\u003e [linux_amd64/exec: \"lsb_release\": executable file not found in $PATH]."}
+{"when":1715632560,"controller":"rcc.robocorpcode","event":"environment","detail":"build","comment":"Progress: 01/15 v17.28.4 0.006s Fresh [private mode] holotree environment e70d8e44-a447-c5ef-290a-729cb3962351. (parent/pid: 83668/83669)"}
+{"when":1715632560,"controller":"rcc.robocorpcode","event":"environment","detail":"build","comment":"Progress: 02/15 v17.28.4 0.006s Holotree blueprint is \"bec6b8a0aea867af\" [linux_amd64 with 11 workers on 12 CPUs from \"conda.yaml\"]."}
+{"when":1715632560,"controller":"rcc.robocorpcode","event":"environment","detail":"build","comment":"Progress: 14/15 v17.28.4 0.215s Restore space from library [with 11 workers on 12 CPUs; with compression: true]."}
+{"when":1715632561,"controller":"rcc.robocorpcode","event":"environment","detail":"build","comment":"Progress: 15/15 v17.28.4 0.548s Fresh holotree done [with 11 workers on 12 CPUs]."}
+{"when":1715632561,"controller":"rcc.robocorpcode","event":"start","detail":"robot","comment":"started"}
+{"when":1715632561,"controller":"rcc.robocorpcode","event":"run","detail":"robot","comment":"task run"}
+{"when":1715632561,"controller":"rcc.robocorpcode","event":"processes","detail":"updated","comment":"count from 0 to 1 ... map[83694:python3.11]"}
+{"when":1715632567,"controller":"rcc.robocorpcode","event":"processes","detail":"updated","comment":"count from 1 to 2 ... map[83694:python3.11 83813:chromedriver]"}
+{"when":1715632568,"controller":"rcc.robocorpcode","event":"processes","detail":"updated","comment":"count from 2 to 5 ... map[83694:python3.11 83813:chromedriver 83838:chromium-browse 83840:chromium-browse 83841:chromium-browse]"}
+{"when":1715632568,"controller":"rcc.robocorpcode","event":"processes","detail":"updated","comment":"count from 5 to 8 ... map[83694:python3.11 83813:chromedriver 83838:chromium-browse 83840:chromium-browse 83841:chromium-browse 83858:chromium-browse 83884:chromium-browse 83897:chromium-browse]"}
+{"when":1715632677,"controller":"rcc.robocorpcode","event":"processes","detail":"updated","comment":"count from 8 to 1 ... map[83694:python3.11]"}
+{"when":1715632678,"controller":"rcc.robocorpcode","event":"robot exit","detail":"From rcc \"v17.28.4\" (controller: \"RobocorpCode\") point of view, \"actual main robot run\" was SUCCESS.","comment":"rcc point of view"}
+{"when":1715632678,"controller":"rcc.robocorpcode","event":"processes","detail":"final","comment":"count: 0"}
+{"when":1715632679,"controller":"rcc.robocorpcode","event":"stop","detail":"robot","comment":"done"}

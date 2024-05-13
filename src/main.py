@@ -32,11 +32,6 @@ def project(search_term, months=1):
         exit(1)
 
     try:
-        # timestamp for output file and folder
-        output_sub_folder = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        path = os.path.join(settings.OUTPUT_PATH, output_sub_folder)
-        os.makedirs(path, exist_ok=True)
-
         logger.info("Instantiating NewsBrowser")
         news_browser = NewsBrowser(
             logger=logger
@@ -46,13 +41,12 @@ def project(search_term, months=1):
         news_browser.open_browser(url="https://gothamist.com/search")
 
         output_data = news_browser.search_articles(
-            output_sub_dir=output_sub_folder,
             query=search_term,
             months=months
         )
         news_browser.close_browsers()
 
-        path = f"{settings.OUTPUT_PATH}/{output_sub_folder}/output.xlsx"
+        path = f"{settings.OUTPUT_PATH}/output.xlsx"
         output_excel_data(
             logger=logger,
             path=path,
