@@ -156,6 +156,7 @@ def interact_with_element(
         )
         
         close_button.click()
+        time.sleep(sleep_duration)
     except TimeoutException:
         # Popup is not present, do nothing
         pass
