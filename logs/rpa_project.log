@@ -690,3 +690,50 @@ Exception: Failed to search for articles - see above for error info
 [2024-05-11 14:37:29][INFO]: on card 3
 [2024-05-11 14:37:33][INFO]: on card 4
 [2024-05-11 14:37:36][INFO]: on card 5
+[2024-05-13 19:45:15][INFO]: Setting up rpa_project
+[2024-05-13 19:45:15][INFO]: Environment set to cloud
+[2024-05-13 19:45:15][INFO]: Logging level set to INFO
+[2024-05-13 19:45:15][INFO]: Logging to logs/rpa_project.log
+[2024-05-13 19:45:15][INFO]: Logger setup complete
+[2024-05-13 19:45:15][INFO]: Instantiating NewsBrowser
+[2024-05-13 19:45:15][INFO]: NewsBrowser initialized
+[2024-05-13 19:45:15][INFO]: Instantiating NewsBrowser
+[2024-05-13 19:45:21][INFO]: entering search function
+[2024-05-13 19:45:29][INFO]: going through cards
+[2024-05-13 19:45:29][INFO]: on card 1
+[2024-05-13 19:45:34][INFO]: on card 2
+[2024-05-13 19:45:38][INFO]: on card 3
+[2024-05-13 19:45:43][INFO]: on card 4
+[2024-05-13 19:45:46][INFO]: on card 5
+[2024-05-13 19:45:50][INFO]: on card 6
+[2024-05-13 19:45:53][INFO]: on card 7
+[2024-05-13 19:45:56][INFO]: on card 8
+[2024-05-13 19:45:59][INFO]: on card 9
+[2024-05-13 19:46:02][INFO]: on card 10
+[2024-05-13 19:46:06][INFO]: on card 11
+[2024-05-13 19:46:09][INFO]: on card 12
+[2024-05-13 19:46:13][INFO]: on card 13
+[2024-05-13 19:46:17][INFO]: on card 14
+[2024-05-13 19:46:20][INFO]: on card 15
+[2024-05-13 19:46:23][INFO]: on card 16
+[2024-05-13 19:46:27][INFO]: on card 17
+[2024-05-13 19:46:31][INFO]: on card 18
+[2024-05-13 19:46:35][INFO]: on card 19
+[2024-05-13 19:46:39][INFO]: on card 20
+[2024-05-13 19:46:43][INFO]: on card 21
+[2024-05-13 19:46:46][INFO]: on card 22
+[2024-05-13 19:46:57][INFO]: Could not retrieve image name for this card
+[2024-05-13 19:47:01][INFO]: on card 23
+[2024-05-13 19:47:04][INFO]: on card 24
+[2024-05-13 19:47:08][INFO]: on card 25
+[2024-05-13 19:47:12][INFO]: on card 26
+[2024-05-13 19:47:15][INFO]: on card 27
+[2024-05-13 19:47:18][INFO]: on card 28
+[2024-05-13 19:47:22][INFO]: on card 29
+[2024-05-13 19:47:26][INFO]: on card 30
+[2024-05-13 19:47:30][INFO]: on card 31
+[2024-05-13 19:47:34][INFO]: on card 32
+[2024-05-13 19:47:39][INFO]: on card 33
+[2024-05-13 19:47:42][INFO]: on card 34
+[2024-05-13 19:47:47][INFO]: on card 35
+[2024-05-13 19:47:51][INFO]: search complete for dog

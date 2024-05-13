@@ -65,9 +65,10 @@ class NewsBrowser(object):
             options.add_argument("--no-sandbox")
             options.add_argument("--disable-dev-shm-usage")
             # popup blocking
-            options.add_experimental_option("prefs", {
-                "profile.default_content_setting_values.notifications": 2
-            })
+            # TODO: uncomment the popup blocking option when done getting the xpath to close the add
+            # options.add_experimental_option("prefs", {
+            #     "profile.default_content_setting_values.notifications": 2
+            # })
             # using WSL locally with headless chrome so want to be able to have
             # this work locally and in the cloud based on options
             if self.ENV == "local":
@@ -80,7 +81,10 @@ class NewsBrowser(object):
                 driver_id = self.browser.register_driver(driver, "my_driver")
                 self.browser.switch_browser(driver_id)
             else:
-                self.browser.open_available_browser(options=options, browser_selection="chrome")
+                self.browser.open_available_browser(
+                    options=options,
+                    browser_selection="chrome"
+                )
             
             # setting a specific size for consistent handling
             self.browser.set_window_size(1024, 768)
@@ -142,6 +146,7 @@ class NewsBrowser(object):
 
             
             interact_with_element(
+                driver=self.browser.driver,
                 logger=self.logger,
                 element_interaction=load_more_button.click
             )
@@ -154,6 +159,8 @@ class NewsBrowser(object):
             self.logger.info("No more cards to load.")
         except Exception as e:
             self.screenshot("load_more_cards_error")
+            page_source = self.browser.get_source
+            print(page_source)
             self.logger.exception(
                 f"Failed to load more cards, reason: {e}")
             raise Exception(
@@ -202,16 +209,19 @@ class NewsBrowser(object):
             )
             
             interact_with_element(
+                driver=self.browser.driver,
                 logger=self.logger,
                 element_interaction=search_bar.click
             )
             interact_with_element(
+                driver=self.browser.driver,
                 logger=self.logger,
                 element_interaction=search_bar.send_keys,
                 params=[query]
             )
 
             interact_with_element(
+                driver=self.browser.driver,
                 logger=self.logger,
                 element_interaction=search_bar.send_keys,
                 params=[keys.Keys.ENTER]

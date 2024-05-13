@@ -8,6 +8,7 @@ from typing import Any, Callable, Dict, List, Union
 import pandas as pd
 from RPA.Browser.Selenium import WebDriverWait
 from selenium.webdriver.remote.webdriver import WebDriver, WebElement
+from selenium.common.exceptions import NoSuchElementException
 
 # project modules
 from logger import Logger
@@ -108,18 +109,21 @@ def wait_and_retrieve_item(
 
 def interact_with_element(
     logger: Logger,
+    driver: WebDriver,
     element_interaction: Callable,
     params: List[Any] = [],
     sleep_duration=settings.DEFAULT_SLEEP
 ) -> None:
     """Attempts to interact with the element(s) based on the
     element_interaction - useful because we bake in a sleep to emulate human
-    delay
+    delay. Also attempts to close any popups that close via checking if the class they use for the close button is present on the page.
 
     #### Parameters
     ------
     1. logger : Logger
         - logger instance
+    1. driver : WebDriver
+        - selenium webdriver instance
     2. element_interaction : Callable
         - function used to interact with the element
             (for eg search_bar.click())s.DEFAULT_TIMEOUT)
@@ -137,6 +141,12 @@ def interact_with_element(
         - Exception
             - when failing to interact with the element
     """
+    try:
+        close_button = driver.find_element_by_class_name("dillcity-CloseButton")
+        close_button.click()
+    except NoSuchElementException:
+        # Popup is not present, do nothing
+        pass
     try:
         element_interaction(*params)
         time.sleep(sleep_duration)
