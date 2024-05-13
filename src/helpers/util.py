@@ -163,10 +163,9 @@ def interact_with_element(
         # Popup is not present, do nothing
         pass
     except Exception as e:
-        logger.exception(f"Failed to close popup, reason: {e}")
-        raise Exception(
-            "Failed to close popup - see above for error info"
-        )
+        # We just want to close popups here, we don't actually care
+        # if there is an error
+        pass
     try:
         element_interaction(*params)
         time.sleep(sleep_duration)
