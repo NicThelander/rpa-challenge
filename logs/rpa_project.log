@@ -2513,3 +2513,17 @@ Stacktrace:
 [2024-05-13 20:52:31][INFO]: on card 8
 [2024-05-13 20:52:35][INFO]: on card 9
 [2024-05-13 20:52:38][INFO]: on card 10
+[2024-05-13 21:44:57][INFO]: Setting up rpa_project
+[2024-05-13 21:44:57][INFO]: Environment set to cloud
+[2024-05-13 21:44:57][INFO]: Logging level set to INFO
+[2024-05-13 21:44:57][INFO]: Logging to logs/rpa_project.log
+[2024-05-13 21:44:57][INFO]: Logger setup complete
+[2024-05-13 21:44:57][INFO]: Instantiating NewsBrowser
+[2024-05-13 21:44:57][INFO]: NewsBrowser initialized
+[2024-05-13 21:44:57][INFO]: Instantiating NewsBrowser
+[2024-05-13 21:45:03][INFO]: entering search function
+[2024-05-13 21:45:12][INFO]: going through cards
+[2024-05-13 21:45:13][INFO]: on card 1
+[2024-05-13 21:45:18][INFO]: on card 2
+[2024-05-13 21:45:20][INFO]: on card 3
+[2024-05-13 21:45:25][INFO]: on card 4
